@@ -1,5 +1,7 @@
 ﻿# Cotech — Plataforma institucional e comercial
 
+A versão Cloudflare Workers usa o backend JavaScript de `worker/`, conectado ao PostgreSQL Supabase por Hyperdrive. Inclui site, painel e orçamentos. Consulte [deploy e operação na Cloudflare](docs/cloudflare.md). As instruções abaixo descrevem a versão Laravel local.
+
 Aplicação Laravel 12 com site público responsivo, solicitação de propostas e painel de gestão. Interface em português, identidade visual Cotech e imagens fornecidas no projeto. CSS e JavaScript são servidos diretamente de `public`; não é necessário compilar assets para executar esta versão.
 
 ## Acesso local
