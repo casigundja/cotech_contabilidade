@@ -1,411 +1,477 @@
 @extends('layouts.public')
-@section('title', 'Calculadora CLT x PJ: Compare Salário Líquido e Vantagens | Cotech')
-@section('description', 'Simule grátis a comparação entre salário CLT e contrato PJ. Descubra quanto faturar como CNPJ para ganhar mais, considerando impostos, benefícios, 13º e férias.')
+@section('title', 'Calculadora salário PJ x CLT | Cotech Contabilidade')
+@section('description', 'Compare de forma simples os impostos, benefícios e contribuições entre PJ e CLT. Calcule quanto você precisa ganhar como PJ para manter seus ganhos equilibrados.')
 
 @section('content')
-<!-- BREADCRUMB -->
-<div class="calc-breadcrumb-bar">
-    <div class="container">
-        <nav aria-label="Navegação estrutural">
-            <a href="/">Início</a>
-            <span class="sep">/</span>
-            <a href="/calculadoras">Calculadoras</a>
-            <span class="sep">/</span>
-            <span class="current">Calculadora PJ x CLT</span>
-        </nav>
+<div class="cpj-page">
+    <!-- BREADCRUMB -->
+    <div class="cpj-breadcrumb-bar">
+        <div class="container">
+            <nav class="cbr-breadcrumb" aria-label="Navegação estrutural">
+                <a href="/">Materiais</a>
+                <span class="sep">></span>
+                <span class="current">Calculadora</span>
+            </nav>
+        </div>
     </div>
-</div>
 
-<!-- HERO DA PÁGINA -->
-<div class="calc-page-hero">
-    <div class="container" data-reveal>
-        <span class="eyebrow">SIMULADOR COMPARATIVO EXCLUSIVO</span>
-        <h1>Calculadora PJ x CLT<br><span class="ink-blue">compare ganhos reais no bolso</span></h1>
-        <p class="muted">Recebeu uma proposta para virar PJ ou quer saber se compensa sair da CLT? Compare os salários líquidos, benefícios, 13º, férias, FGTS e impostos do Simples Nacional para tomar a melhor decisão financeira.</p>
-    </div>
-</div>
-
-<!-- SECTION CALCULADORA INTERATIVA -->
-<section class="section calc-main-section">
-    <div class="container">
-        <div class="calc-card-grid">
-            <!-- INPUTS COMPARADOR -->
-            <div class="calc-inputs-card" data-reveal>
-                <div class="calc-card-header">
-                    <span class="calc-step-tag">DADOS DA SIMULAÇÃO</span>
-                    <h3>Informe os dados do contrato</h3>
-                    <p class="calc-subtitle">Preencha os valores para simular os ganhos mensais e anuais em cada modelo de contratação.</p>
+    <!-- 01. HERO SECTION -->
+    <div class="cpj-hero-section">
+        <div class="container">
+            <div class="cpj-hero-card">
+                <div class="cpj-hero-content">
+                    <h1>Calculadora salário PJ x CLT<span class="dot-cyan">.</span></h1>
+                    <p>A calculadora PJ x CLT é uma ferramenta que compara de forma simples os impostos, benefícios e contribuições de cada regime, ajudando você a entender quanto precisaria ganhar como PJ para manter os ganhos equilibrados. Além disso, a ferramenta também calcula o salário líquido em cada regime, mostrando claramente as diferenças e ajudando você a tomar decisões financeiras mais assertivas.</p>
                 </div>
-
-                <div class="calc-subheading">1. Cenário CLT (Carteira Assinada)</div>
-                <div class="calc-form-group">
-                    <label for="clt-bruto">Salário Bruto CLT (R$) *</label>
-                    <input type="number" id="clt-bruto" class="calc-input" value="8000" min="1518" step="100">
-                    <small class="calc-field-help">Salário nominal registrado na carteira de trabalho.</small>
+                <div class="cpj-hero-image">
+                    <img src="/images/hero-clt-pj-woman.jpg" alt="Profissional avaliando proposta PJ x CLT" width="320" height="240">
                 </div>
-
-                <div class="calc-form-group">
-                    <label for="clt-dependentes">Número de Dependentes (para dedução do IRPF)</label>
-                    <input type="number" id="clt-dependentes" class="calc-input" value="0" min="0" max="10">
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="clt-beneficios">Total de Benefícios CLT Mensais (VR, VA, Saúde em R$)</label>
-                    <input type="number" id="clt-beneficios" class="calc-input" value="1200" min="0" step="50">
-                    <small class="calc-field-help">Soma dos valores de vale refeição, alimentação e subsídio do plano de saúde.</small>
-                </div>
-
-                <div class="calc-subheading" style="margin-top: 24px;">2. Cenário PJ (Pessoa Jurídica)</div>
-                <div class="calc-form-group">
-                    <label for="pj-faturamento">Pretensão ou Proposta PJ Mensal (R$) *</label>
-                    <input type="number" id="pj-faturamento" class="calc-input" value="13000" min="2000" step="500">
-                    <small class="calc-tip">💡 <strong>Regra de mercado:</strong> Para empatar ou superar a CLT com benefícios, o valor PJ geralmente varia entre 1.4x e 1.7x o salário CLT.</small>
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="pj-regime">Regime Tributário PJ</label>
-                    <select id="pj-regime" class="calc-input">
-                        <option value="simples-anexo3" selected>Simples Nacional — Anexo III (6% c/ Fator R otimizado Cotech)</option>
-                        <option value="simples-anexo5">Simples Nacional — Anexo V (15,5% sem Fator R)</option>
-                        <option value="lucro-presumido">Lucro Presumido (aprox. 16,33% PIS/COFINS/IRPJ/CSLL/ISS)</option>
-                    </select>
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="pj-mensalidade">Honorários Contábeis Cotech Mensal (R$)</label>
-                    <input type="number" id="pj-mensalidade" class="calc-input" value="189" min="0" step="10">
-                </div>
-
-                <button type="button" class="button blue-button full-width" id="btn-calc-clt-pj">Comparar Agora ↗</button>
             </div>
 
-            <!-- RESULTADOS SIDE BY SIDE -->
-            <div class="calc-results-card" data-reveal>
-                <span class="calc-badge-green">COMPARATIVO LÍQUIDO REAL</span>
+            <!-- FORM CARD -->
+            <div class="cpj-form-card">
+                <div class="cpj-form-title">Preencha as informações abaixo com seus dados CLT:</div>
 
-                <div class="clt-pj-comparison-grid">
-                    <!-- COLUNA CLT -->
-                    <div class="comparison-column clt-col">
-                        <span class="comp-tag">REGIME CLT</span>
-                        <div class="comp-value" id="res-clt-liquido">R$ 6.320,00</div>
-                        <small>Líquido em conta todo mês</small>
-                        <ul class="comp-details">
-                            <li>Desconto INSS: <span id="res-clt-inss">- R$ 908,00</span></li>
-                            <li>Desconto IRPF: <span id="res-clt-irpf">- R$ 772,00</span></li>
-                            <li>Benefícios mensais: <span id="res-clt-benef-val">+ R$ 1.200,00</span></li>
-                            <li>13º Salário (anual): <span id="res-clt-13">+ R$ 6.320,00</span></li>
-                            <li>Férias + 1/3 (anual): <span id="res-clt-ferias">+ R$ 8.426,00</span></li>
-                            <li>FGTS 8% (anual): <span id="res-clt-fgts">+ R$ 7.680,00</span></li>
-                            <li class="comp-highlight-row">Total Anual CLT (c/ direitos): <strong id="res-clt-anual">R$ 104.546</strong></li>
-                        </ul>
+                <div class="cpj-form-grid-3">
+                    <div class="cpj-field">
+                        <label for="cpj-salario">Salário mensal bruto:</label>
+                        <input type="text" id="cpj-salario" class="cpj-input" value="R$ 6.000,00" placeholder="R$ 0,00">
                     </div>
-
-                    <!-- COLUNA PJ -->
-                    <div class="comparison-column pj-col">
-                        <span class="comp-tag pj-tag">COMO PJ NA COTECH</span>
-                        <div class="comp-value text-green" id="res-pj-liquido">R$ 11.603,00</div>
-                        <small>Líquido no seu bolso todo mês</small>
-                        <ul class="comp-details">
-                            <li>Faturamento bruto: <span id="res-pj-fat-val">R$ 13.000,00</span></li>
-                            <li>Imposto DAS (Simples): <span id="res-pj-imposto">- R$ 780,00</span></li>
-                            <li>Pró-labore + INSS (11%): <span id="res-pj-inss">- R$ 428,00</span></li>
-                            <li>Contabilidade Cotech: <span id="res-pj-contab">- R$ 189,00</span></li>
-                            <li>Economia de encargos: <span class="text-green">Otimizado Anexo III</span></li>
-                            <li class="comp-highlight-row">Total Anual PJ Líquido: <strong class="text-green" id="res-pj-anual">R$ 139.236</strong></li>
-                        </ul>
+                    <div class="cpj-field">
+                        <label for="cpj-vr">Vale-refeição/alimentação (opcional):</label>
+                        <input type="text" id="cpj-vr" class="cpj-input" value="R$ 800,00" placeholder="R$ 0,00">
+                    </div>
+                    <div class="cpj-field">
+                        <label for="cpj-vt">Vale-transporte (opcional):</label>
+                        <input type="text" id="cpj-vt" class="cpj-input" value="R$ 0,00" placeholder="R$ 0,00">
                     </div>
                 </div>
 
-                <!-- VEREDITO / BANNER DE VITÓRIA -->
-                <div class="calc-winner-banner" id="res-banner-box">
-                    <span class="winner-icon">🚀</span>
+                <div class="cpj-form-grid-2">
+                    <div class="cpj-field">
+                        <label for="cpj-saude">Plano de saúde (opcional):</label>
+                        <input type="text" id="cpj-saude" class="cpj-input" value="R$ 450,00" placeholder="R$ 0,00">
+                    </div>
+                    <div class="cpj-field">
+                        <label for="cpj-outros">
+                            Outros benefícios (opcional):
+                            <span class="tip" title="Previdência privada, auxílio creche, seguro de vida, etc.">ⓘ</span>
+                        </label>
+                        <input type="text" id="cpj-outros" class="cpj-input" value="R$ 0,00" placeholder="R$ 0,00">
+                    </div>
+                </div>
+
+                <div class="cpj-form-footer">
+                    <p class="cpj-form-note">
+                        Cálculo atualizado em 2026.<br>
+                        Ao utilizar esta ferramenta, você declara estar ciente de que os valores apresentados são apenas estimativas e concorda com a nossa <a href="/pagina/privacidade">Política de Privacidade</a>, Política de Cookies e Termos de Uso. Para saber mais sobre os critérios utilizados nos cálculos, <a href="#como-calcular">clique aqui</a>.
+                    </p>
+                    <button type="button" id="cpj-btn-calc" class="cpj-btn-result">VER RESULTADO</button>
+                </div>
+
+                <!-- DYNAMIC RESULTS PANEL -->
+                <div id="cpj-results-card" class="cpj-results-card">
+                    <div class="cpj-results-head">
+                        <div>
+                            <h3>Resultado Comparativo PJ x CLT</h3>
+                            <small class="muted">Estimativa personalizada com base nos seus dados informados</small>
+                        </div>
+                    </div>
+
+                    <div class="cpj-sugestao-banner">
+                        <div>
+                            <span>Faturamento PJ mensal sugerido para ter o mesmo padrão de vida:</span>
+                            <p style="margin: 4px 0 0; font-size: 13px; color: #cbd5e1;">Compensa todos os benefícios, 13º, férias e impostos do Simples Nacional.</p>
+                        </div>
+                        <strong id="res-pj-sugerido">R$ 9.150,00</strong>
+                    </div>
+
+                    <div class="cpj-compare-grid">
+                        <!-- CLT BOX -->
+                        <div class="cpj-box">
+                            <span class="cpj-box-tag tag-clt">Cenário CLT Atual</span>
+                            <div class="cpj-big-num" id="res-clt-liquido">R$ 4.890,00</div>
+                            <small class="muted">Salário líquido mensal direto na conta</small>
+
+                            <ul class="cpj-row-list">
+                                <li><span>Salário Bruto:</span> <strong id="res-clt-bruto">R$ 6.000,00</strong></li>
+                                <li><span>Desconto INSS estimado:</span> <span id="res-clt-inss" class="text-danger">- R$ 680,00</span></li>
+                                <li><span>Desconto IRRF estimado:</span> <span id="res-clt-irrf" class="text-danger">- R$ 430,00</span></li>
+                                <li><span>Benefícios mensais somados:</span> <strong id="res-clt-beneficios">+ R$ 1.250,00</strong></li>
+                                <li><span>Provisão FGTS (8%):</span> <strong id="res-clt-fgts">+ R$ 480,00</strong></li>
+                                <li><span>Provisão 13º + Férias (+⅓):</span> <strong id="res-clt-decimo">+ R$ 850,00</strong></li>
+                                <li style="border-top: 1px dashed #cbd5e1; padding-top: 8px; font-weight: 700;">
+                                    <span>Remuneração Total Real CLT:</span>
+                                    <strong id="res-clt-total-real">R$ 7.470,00</strong>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- PJ BOX -->
+                        <div class="cpj-box highlight">
+                            <span class="cpj-box-tag tag-pj">Cenário PJ Recomendado</span>
+                            <div class="cpj-big-num text-green" id="res-pj-liquido">R$ 8.240,00</div>
+                            <small class="muted">Líquido estimado livre de impostos na sua conta</small>
+
+                            <ul class="cpj-row-list">
+                                <li><span>Faturamento Bruto Emitido:</span> <strong id="res-pj-bruto">R$ 9.150,00</strong></li>
+                                <li><span>Imposto Simples Nacional (6% Fator R):</span> <span id="res-pj-imposto" class="text-danger">- R$ 549,00</span></li>
+                                <li><span>INSS Pró-labore (11% s/ salário mín.):</span> <span id="res-pj-inss" class="text-danger">- R$ 167,00</span></li>
+                                <li><span>Contabilidade Cotech Completa:</span> <span class="text-danger">- R$ 195,00</span></li>
+                                <li><span>Honorários de Abertura:</span> <strong class="text-green">R$ 0,00 (GRÁTIS)</strong></li>
+                                <li style="border-top: 1px dashed #a7f3d0; padding-top: 8px; font-weight: 700; color: #065f46;">
+                                    <span>Ganho Líquido Extra no Bolso:</span>
+                                    <strong id="res-pj-vantagem" style="color: #059669;">+ R$ 770,00 /mês</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a id="cpj-cta-link" href="/orcamento?servico=transicao-pj" class="cbr-btn-cyan">Falar com Consultor Contábil e Abrir CNPJ Grátis ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 02. SECTION: COMO CALCULAR O SALÁRIO PJ -->
+    <section class="cpj-section-howto" id="como-calcular">
+        <div class="container">
+            <div class="cpj-howto-grid">
+                <div class="cpj-howto-content">
+                    <h2>Como calcular o salário PJ<span class="dot-cyan">.</span></h2>
+                    
+                    <p>Para calcular o salário PJ é necessário entender primeiro como calcular o seu salário líquido CLT, somando os benefícios típicos dessa modalidade. O cálculo do salário CLT envolve os seguintes passos:</p>
+
+                    <ol class="cpj-steps-ol">
+                        <li><strong>Salário líquido CLT:</strong> considere o seu salário líquido mensal (já descontados os impostos);</li>
+                        <li><strong>Férias + ⅓:</strong> adicione 33,33% sobre o valor do salário bruto, e, sobre este valor, desconte os impostos incidentes (INSS e IRRF) para encontrar o valor líquido. Por fim, divida o resultado por 12 e adicione esse valor ao salário líquido;</li>
+                        <li><strong>13º salário:</strong> divida o seu salário líquido mensal por 12 e adicione esse valor à soma;</li>
+                        <li><strong>FGTS:</strong> adicione 8% sobre o valor do salário bruto (relacionado ao FGTS);</li>
+                        <li><strong>Benefícios:</strong> some os benefícios de alimentação, saúde e outros pagos pela empresa.</li>
+                    </ol>
+
+                    <p>Após calcular o salário CLT, você poderá comparar com o salário PJ. Para calcular o salário líquido PJ, siga os seguintes passos:</p>
+
+                    <ol class="cpj-steps-ol">
+                        <li><strong>Imposto da empresa:</strong> desconte de 6% a 33% do faturamento da empresa (dependendo do regime tributário);</li>
+                        <li><strong>INSS:</strong> desconte 11% sobre o valor do pró-labore (salário definido para fins de contribuição);</li>
+                        <li><strong>Contabilidade:</strong> desconte o custo mensal com contabilidade, que varia conforme o contador e os serviços prestados.</li>
+                    </ol>
+
+                    <p>Na prática, para que a remuneração de um PJ seja equivalente ao que você receberia como CLT é necessário que o <strong>salário bruto PJ seja, em média, de 20% a 50% maior do que o salário bruto CLT</strong>. Isso ocorre porque, como PJ, você arca com os impostos e encargos que no CLT são de responsabilidade do empregador. Além de, em geral, perder benefícios como vale-alimentação e plano de saúde, normalmente concedidos a trabalhadores CLT.</p>
+                </div>
+
+                <div class="cpj-howto-visual">
+                    <img src="/images/calculadora-mao-clt.jpg" alt="Mão segurando calculadora azul com valor 15000" width="360" height="360" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. SECTION: CARDS PJ VS CLT -->
+    <section class="cpj-section-cards">
+        <div class="container">
+            <div class="cpj-cards-compare-grid">
+                <!-- CARD PJ -->
+                <div class="cpj-compare-card card-pj">
+                    <span class="cpj-badge-pill pill-pj">PJ</span>
+                    <p>No regime PJ (pessoa jurídica), o trabalhador firma um contrato de prestação de serviços com a empresa, sem vínculo empregatício formal. As características deste modelo incluem:</p>
+                    
+                    <ul class="cpj-bullet-list">
+                        <li>
+                            <span class="chk">✓</span>
+                            <span><strong>Remuneração sem descontos:</strong> o salário é pago integralmente, mas o PJ é responsável por pagar seus próprios impostos, que variam conforme o porte da empresa, faturamento e atividade exercida. Por exemplo: Simples Nacional, Lucro Presumido ou Lucro Real.</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span><strong>Direitos trabalhistas:</strong> o PJ não possui os benefícios trabalhistas garantidos pela CLT, como férias, 13º salário ou FGTS, a menos que sejam acordados de forma contratual.</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span><strong>Flexibilidade de horário:</strong> O PJ pode estipular sua própria agenda de trabalho, desde que cumpra as obrigações acordadas com o contratante.</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span><strong>Maior liberdade:</strong> O PJ pode prestar serviços para diversos empregadores ao mesmo tempo, sem a limitação de um vínculo exclusivo.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CARD CLT -->
+                <div class="cpj-compare-card card-clt">
+                    <span class="cpj-badge-pill pill-clt">CLT</span>
+                    <p>Na contratação CLT, o vínculo empregatício é formalizado com a assinatura na carteira de trabalho, garantindo ao empregado diversos benefícios trabalhistas como:</p>
+                    
+                    <ul class="cpj-bullet-list">
+                        <li>
+                            <span class="chk">✓</span>
+                            <span><strong>Férias, 13º salário, FGTS, vale-transporte e vale-refeição</strong> (dependendo do contrato).</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span>O salário de um empregado CLT já sofre <strong>descontos obrigatórios, como o INSS e o Imposto de Renda (IRRF)</strong>, o que reduz o valor líquido recebido mensalmente.</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span>O empregado CLT precisa cumprir a <strong>jornada de trabalho estabelecida por lei</strong>.</span>
+                        </li>
+                        <li>
+                            <span class="chk">✓</span>
+                            <span>O regime CLT oferece <strong>mais segurança e direitos trabalhistas</strong>, mas a remuneração líquida é afetada pelos descontos obrigatórios e pela limitação de flexibilidade.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 05. SECTION: OUTRAS INFORMAÇÕES IMPORTANTES (TABS) -->
+    <section class="cpj-section-tabs">
+        <div class="container">
+            <h2 class="cbr-section-title">Outras informações importantes<span class="dot-cyan">.</span></h2>
+
+            <!-- TABS NAVIGATION -->
+            <div class="cpj-tabs-nav" role="tablist">
+                <button type="button" class="cpj-tab-btn active" data-tab="tab-contratacao">📄 Contratação</button>
+                <button type="button" class="cpj-tab-btn" data-tab="tab-obrigacoes">📋 Obrigações</button>
+                <button type="button" class="cpj-tab-btn" data-tab="tab-direitos">⚖️ Direitos</button>
+                <button type="button" class="cpj-tab-btn" data-tab="tab-descontos">🏷️ Descontos</button>
+            </div>
+
+            <!-- TAB 1: CONTRATAÇÃO -->
+            <div id="tab-contratacao" class="cpj-tab-content-box active">
+                <h3>Como é feita a contratação PJ e CLT?</h3>
+                <div class="cpj-tab-two-cols">
                     <div>
-                        <strong id="res-winner-title">Ganho Extra como PJ: <span class="text-green" id="res-pj-diferenca">+ R$ 34.690 / ano</span></strong>
-                        <p id="res-winner-desc">Como PJ com a assessoria da Cotech, você mantém muito mais recursos no seu bolso para investir, criar sua reserva e ter flexibilidade financeira.</p>
+                        <span class="cpj-badge-pill pill-pj">PJ</span>
+                        <p>A contratação PJ é bem diferente da contratação CLT, pois não há vínculo empregatício formal e as obrigações trabalhistas são distintas. Veja como funciona:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Abrir uma empresa:</strong> para ser contratado como PJ, o profissional precisa abrir uma empresa (CNPJ) e atuar como prestador de serviços.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Contrato de prestação de serviços:</strong> a relação entre o PJ e a empresa contratante é formalizada por meio de um contrato de prestação de serviços, no qual são definidos detalhes como horário de trabalho, quantidade de horas, escopo e remuneração.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="cpj-badge-pill pill-clt">CLT</span>
+                        <p>A contratação CLT segue uma série de normas celetistas e envolve um processo mais formal, com custos e obrigações tanto para o empregado quanto para o empregador. Veja os principais pontos:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Vínculo empregatício:</strong> o profissional que é contratado CLT tem um vínculo formal com a empresa, com registro na carteira de trabalho e garantias de direitos trabalhistas.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Documentação e procedimentos:</strong> para formalizar a contratação, o empregador deve seguir alguns procedimentos legais, como a assinatura da carteira de trabalho e exames médicos admissionais.</span></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <div class="calc-breakdown-list" style="margin-top: 15px;">
-                    <div class="breakdown-item highlight-saving">
-                        <span>Valor PJ recomendado p/ empatar o pacote CLT:</span>
-                        <strong class="text-blue" id="res-pj-minimo">R$ 9.850,00 / mês</strong>
+            <!-- TAB 2: OBRIGAÇÕES -->
+            <div id="tab-obrigacoes" class="cpj-tab-content-box">
+                <h3>Quais são as principais obrigações?</h3>
+                <div class="cpj-tab-two-cols">
+                    <div>
+                        <span class="cpj-badge-pill pill-pj">PJ</span>
+                        <p>No modelo PJ, o profissional é responsável por gerenciar a própria empresa:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Emissão de Notas Fiscais:</strong> Emitir nota fiscal para receber seus honorários acordados no contrato.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Pagamento de Impostos (DAS):</strong> Recolher a guia do Simples Nacional mensalmente (a partir de 6% com Fator R).</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Contabilidade Ativa:</strong> Manter uma contabilidade regular para entrega de obrigações e distribuição de lucros 100% isenta.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="cpj-badge-pill pill-clt">CLT</span>
+                        <p>No modelo CLT, as obrigações fiscais são retidas diretamente pela empresa empregadora:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Cumprimento de Jornada:</strong> Bater ponto e respeitar os horários estipulados na jornada de 44h semanais.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Subordinação Direta:</strong> Submeter-se à hierarquia e normas internas estabelecidas pelo empregador.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Declaração de Ajuste Anual:</strong> Declarar o imposto de renda pessoa física anual com base no informe de rendimentos.</span></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <div class="calc-cta-box">
-                    <a class="button blue-button full-width" href="/orcamento?servico=transicao-pj">Fazer Transição para PJ com a Cotech ↗</a>
-                    <span class="calc-security-note">🔒 Cuidamos da abertura do seu CNPJ, contratos e emissão de notas.</span>
+            <!-- TAB 3: DIREITOS -->
+            <div id="tab-direitos" class="cpj-tab-content-box">
+                <h3>Direitos e Benefícios comparados</h3>
+                <div class="cpj-tab-two-cols">
+                    <div>
+                        <span class="cpj-badge-pill pill-pj">PJ</span>
+                        <p>O profissional PJ tem liberdade de negociação direta com a empresa:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Remuneração sem teto:</strong> Possibilidade de negociar livremente valores e reajustes sem convenção coletiva.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Múltiplos Clientes:</strong> Liberdade para prestar serviços a várias empresas simultaneamente e acelerar seus ganhos.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Recessos Negociados:</strong> Dias de descanso e bonificações podem ser livremente pactuados no contrato de serviços.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="cpj-badge-pill pill-clt">CLT</span>
+                        <p>O trabalhador CLT conta com a rede de proteção da legislação trabalhista:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>13º Salário e Férias Remuneradas:</strong> 30 dias de férias após 12 meses de trabalho com adicional de ⅓ constitucional.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Fundo de Garantia (FGTS):</strong> Depósito mensal de 8% do salário em conta vinculada na Caixa com multa rescisória de 40%.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Seguro-Desemprego:</strong> Proteção financeira temporária em caso de demissão sem justa causa.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: DESCONTOS -->
+            <div id="tab-descontos" class="cpj-tab-content-box">
+                <h3>Descontos e Tributação: PJ x CLT</h3>
+                <div class="cpj-tab-two-cols">
+                    <div>
+                        <span class="cpj-badge-pill pill-pj">PJ</span>
+                        <p>A tributação PJ é muito mais favorável para serviços intelectuais:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>Simples Nacional:</strong> Alíquota a partir de 6% sobre a nota fiscal emitida no Anexo III.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>INSS Mínimo:</strong> 11% sobre o salário mínimo de pró-labore para manter cobertura previdenciária.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Sem IRRF na Distribuição:</strong> Lucro transferido para a pessoa física é 100% isento de imposto de renda.</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="cpj-badge-pill pill-clt">CLT</span>
+                        <p>Na CLT os descontos são compulsórios e pesados no contracheque:</p>
+                        <ul class="cpj-bullet-list">
+                            <li><span class="chk">✓</span> <span><strong>INSS Progressivo:</strong> Desconto de 7,5% a 14% retido na fonte todo mês.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>IRRF na Fonte:</strong> Alíquotas de até 27,5% descontadas diretamente do seu salário.</span></li>
+                            <li><span class="chk">✓</span> <span><strong>Coparticipações:</strong> Descontos de até 6% para vale-transporte e cotas de plano de saúde.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM BANNERS -->
+            <div class="cpj-bottom-banners">
+                <div class="cpj-banner-card">
+                    <span>Conheça nosso serviço de abertura de empresa</span>
+                    <a href="/calculadora-de-custo-para-tirar-cnpj" class="cpj-banner-btn btn-outline">SAIBA MAIS</a>
+                </div>
+                <div class="cpj-banner-card">
+                    <span>Dúvidas? Fale com nosso time de atendimento</span>
+                    <a href="/orcamento" class="cpj-banner-btn btn-cyan">FALAR COM ESPECIALISTA</a>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 
-<!-- SEÇÃO EDUCATIVA: DIFERENÇAS CLT X PJ -->
-<section class="section calc-info-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">ANÁLISE ESTRATÉGICA</span>
-        <h2>CLT vs PJ: Como saber qual modelo escolher?</h2>
-        <p class="muted">A escolha entre trabalhar com carteira assinada ou como prestador de serviços através de uma empresa própria depende dos seus objetivos de carreira, remuneração e estabilidade:</p>
-
-        <div class="calc-info-grid">
-            <div class="calc-info-card">
-                <div class="calc-info-icon">📋</div>
-                <h3>Regime CLT: Segurança e Direitos</h3>
-                <p>O profissional CLT tem garantias trabalhistas como férias remuneradas com 1/3, 13º salário, FGTS com multa rescisória de 40%, aviso prévio e seguro-desemprego. Em contrapartida, os descontos de INSS e Imposto de Renda chegam a até 27,5% na fonte, diminuindo bastante o salário líquido.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">💼</div>
-                <h3>Modelo PJ: Maior Ganho Líquido</h3>
-                <p>Como Pessoa Jurídica, a remuneração mensal bruta costuma ser substancialmente superior (geralmente de 40% a 70% a mais). No Simples Nacional com apoio da Cotech, você tributa sua receita a partir de apenas 6%, acumulando patrimônio de forma muito mais veloz.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">🏖️</div>
-                <h3>Flexibilidade e Férias no PJ</h3>
-                <p>Contratos de prestação de serviços PJ modernos frequentemente incluem cláusulas de descanso remunerado acordadas entre as partes (ex: 20 a 30 dias de recesso anual). Além disso, você tem autonomia para atender mais de um cliente simultaneamente.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">🛡️</div>
-                <h3>Como Criar Sua Proteção como PJ</h3>
-                <p>Para atuar como PJ com total tranquilidade, o profissional deve reservar parte do ganho extra para construir uma reserva de emergência (6 meses de custo de vida), contratar plano de saúde individual e manter contribuição previdenciária ou privada.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TABELA COMPARATIVA DETALHADA -->
-<section class="section calc-table-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">RAIO-X COMPARATIVO</span>
-        <h2>Tabela de Benefícios e Obrigações</h2>
-        <p class="muted">Confira lado a lado como cada regime funciona na legislação brasileira:</p>
-
-        <div class="table-wrap">
-            <table class="calc-comparison-table">
-                <thead>
-                    <tr>
-                        <th>Aspecto</th>
-                        <th>CLT (Carteira Assinada)</th>
-                        <th>PJ (Prestador de Serviços)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Impostos e Descontos</strong></td>
-                        <td>INSS (até 14%) + IRPF (até 27,5%) retidos na folha</td>
-                        <td>Simples Nacional a partir de 6% (Anexo III)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>13º e Férias + 1/3</strong></td>
-                        <td>Obrigatórios por lei</td>
-                        <td>Compensados pelo valor maior ou negociados em contrato</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FGTS</strong></td>
-                        <td>8% pago pela empresa + multa de 40% na demissão</td>
-                        <td>Substituído pela sua própria reserva de investimentos</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Múltiplos Clientes</strong></td>
-                        <td>Raro (exige autorização ou compatibilidade)</td>
-                        <td>Total liberdade para emitir notas para vários clientes</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Abertura de Empresa</strong></td>
-                        <td>Não se aplica</td>
-                        <td><strong class="text-green">Grátis nos planos da Cotech</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ ESPECÍFICO DE CLT X PJ -->
-<section class="section calc-faq-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">PERGUNTAS E RESPOSTAS</span>
-        <h2>Dúvidas frequentes sobre CLT x PJ</h2>
-
-        <div class="faq-accordion-list">
-            <details class="faq-item">
-                <summary>A partir de qual valor realmente compensa virar PJ?</summary>
-                <div class="faq-answer">
-                    <p>Em geral, para salários CLT a partir de <strong>R$ 5.000 a R$ 6.000</strong>, a migração para PJ torna-se altamente vantajosa financeiramente, desde que a proposta PJ ofereça um acréscimo de pelo menos 40% sobre o salário bruto para cobrir férias, 13º e plano de saúde.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Quem é PJ tem direito a aposentadoria pelo INSS?</summary>
-                <div class="faq-answer">
-                    <p>Sim! Ao retirar o <strong>pró-labore</strong> da sua empresa (a remuneração mensal do sócio administrador), você recolhe a contribuição obrigatória do INSS (11%), mantendo a qualidade de segurado da Previdência Social para aposentadoria, auxílio-doença e licença maternidade.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>O que é a Pejotização e quais os cuidados legais?</summary>
-                <div class="faq-answer">
-                    <p>A relação PJ é uma contratação entre duas empresas (B2B). Para ter segurança jurídica, a prestação de serviços não deve conter elementos estritos de subordinação hierárquica direta, controle rígido de ponto físico ou exclusividade impositiva. A Cotech orienta você com minutas contratuais seguras.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Como a Cotech me ajuda na transição de CLT para PJ?</summary>
-                <div class="faq-answer">
-                    <p>Cuidamos de tudo: abrimos seu CNPJ grátis, definimos o CNAE ideal com alíquota inicial de 6% no Simples Nacional, emitimos suas notas fiscais todo mês, calculamos seus impostos e pró-labore e garantimos conformidade total com a Receita Federal.</p>
-                </div>
-            </details>
-        </div>
-    </div>
-</section>
-
-<!-- CALL TO ACTION FINAL -->
-<section class="section calc-final-cta">
-    <div class="container" data-reveal>
-        <div class="srv-callout-card">
-            <div class="srv-callout-content">
-                <span class="srv-callout-tag">PLANEJE SUA TRANSIÇÃO</span>
-                <h2>Quer analisar sua proposta com um especialista?</h2>
-                <p>Nossos contadores avaliam sua proposta de trabalho atual ou nova oferta e mostram exatamente como maximizar seus rendimentos como PJ.</p>
-                <div class="srv-callout-actions">
-                    <a class="button blue-button" href="/orcamento?servico=transicao-pj">Solicitar Consultoria PJ Gratuita <span>↗</span></a>
-                    <a class="button srv-button-ghost" href="/calculadoras">Explorar Outras Calculadoras <span>↗</span></a>
-                </div>
-            </div>
-            <div class="srv-callout-image">
-                <img src="/images/specialist-tablet.jpg" alt="Consultor Cotech comparando CLT e PJ" width="460" height="420" loading="lazy">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- JAVASCRIPT DO CÁLCULO CLT X PJ -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const inBruto = document.getElementById('clt-bruto');
-    const inDep = document.getElementById('clt-dependentes');
-    const inBenef = document.getElementById('clt-beneficios');
-    const inFatPj = document.getElementById('pj-faturamento');
-    const selRegime = document.getElementById('pj-regime');
-    const inMensalidade = document.getElementById('pj-mensalidade');
-    const btnCalc = document.getElementById('btn-calc-clt-pj');
+    const inputSalario = document.getElementById('cpj-salario');
+    const inputVr = document.getElementById('cpj-vr');
+    const inputVt = document.getElementById('cpj-vt');
+    const inputSaude = document.getElementById('cpj-saude');
+    const inputOutros = document.getElementById('cpj-outros');
+    const btnCalc = document.getElementById('cpj-btn-calc');
+    const resultsCard = document.getElementById('cpj-results-card');
 
-    function calcInssClt(salario) {
-        // Tabela progressiva INSS
-        const teto = 7786.02;
-        let base = Math.min(salario, teto);
-        let inss = 0;
-        if (base <= 1518.00) {
-            inss = base * 0.075;
-        } else if (base <= 2793.88) {
-            inss = (1518.00 * 0.075) + ((base - 1518.00) * 0.09);
-        } else if (base <= 4190.83) {
-            inss = (1518.00 * 0.075) + ((2793.88 - 1518.00) * 0.09) + ((base - 2793.88) * 0.12);
-        } else {
-            inss = (1518.00 * 0.075) + ((2793.88 - 1518.00) * 0.09) + ((4190.83 - 2793.88) * 0.12) + ((base - 4190.83) * 0.14);
-        }
-        return inss;
+    function parseMoney(val) {
+        if (!val) return 0;
+        const clean = String(val).replace(/[^\d]/g, '');
+        return (parseFloat(clean) || 0) / 100;
     }
 
-    function calcIrpfClt(salario, inss, dependentes) {
-        let base = salario - inss - (dependentes * 189.59);
-        let ir = 0;
-        if (base <= 2259.20) {
-            ir = 0;
-        } else if (base <= 2826.65) {
-            ir = (base * 0.075) - 169.44;
-        } else if (base <= 3751.05) {
-            ir = (base * 0.15) - 381.44;
-        } else if (base <= 4664.68) {
-            ir = (base * 0.225) - 662.77;
-        } else {
-            ir = (base * 0.275) - 896.00;
-        }
-        return Math.max(0, ir);
+    function fmt(val) {
+        return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function setupMoneyInput(el) {
+        if (!el) return;
+        el.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (!value) value = '0';
+            const num = parseFloat(value) / 100;
+            e.target.value = num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        });
+    }
+
+    [inputSalario, inputVr, inputVt, inputSaude, inputOutros].forEach(setupMoneyInput);
+
+    function calcInssClt(salario) {
+        if (salario <= 1412.00) return salario * 0.075;
+        if (salario <= 2666.68) return 1412.00 * 0.075 + (salario - 1412.00) * 0.09;
+        if (salario <= 4000.03) return 1412.00 * 0.075 + (2666.68 - 1412.00) * 0.09 + (salario - 2666.68) * 0.12;
+        if (salario <= 7786.02) return 1412.00 * 0.075 + (2666.68 - 1412.00) * 0.09 + (4000.03 - 2666.68) * 0.12 + (salario - 4000.03) * 0.14;
+        return 908.86;
+    }
+
+    function calcIrrfClt(base) {
+        if (base <= 2259.20) return 0;
+        if (base <= 2826.65) return base * 0.075 - 169.44;
+        if (base <= 3751.05) return base * 0.15 - 381.44;
+        if (base <= 4664.68) return base * 0.225 - 662.77;
+        return base * 0.275 - 896.00;
     }
 
     function calcular() {
-        const salarioClt = parseFloat(inBruto.value) || 8000;
-        const dep = parseInt(inDep.value) || 0;
-        const benef = parseFloat(inBenef.value) || 0;
-        const fatPj = parseFloat(inFatPj.value) || 13000;
-        const regime = selRegime.value || 'simples-anexo3';
-        const mensalidadeContab = parseFloat(inMensalidade.value) || 189;
+        const brutoClt = parseMoney(inputSalario.value) || 6000;
+        const vr = parseMoney(inputVr.value) || 0;
+        const vt = parseMoney(inputVt.value) || 0;
+        const saude = parseMoney(inputSaude.value) || 0;
+        const outros = parseMoney(inputOutros.value) || 0;
 
-        // Cálculos CLT
-        const inssClt = calcInssClt(salarioClt);
-        const irpfClt = calcIrpfClt(salarioClt, inssClt, dep);
-        const liquidoCltMensal = salarioClt - inssClt - irpfClt;
+        const totalBeneficios = vr + vt + saude + outros;
+        const inssClt = calcInssClt(brutoClt);
+        const irrfClt = Math.max(0, calcIrrfClt(brutoClt - inssClt));
+        const liquidoClt = brutoClt - inssClt - irrfClt;
 
-        const decimoTerceiro = salarioClt - calcInssClt(salarioClt) - calcIrpfClt(salarioClt, calcInssClt(salarioClt), dep);
-        const feriasUmTerco = (salarioClt * 4 / 3) - calcInssClt(salarioClt * 4 / 3) - calcIrpfClt(salarioClt * 4 / 3, calcInssClt(salarioClt * 4 / 3), dep);
-        const fgtsAnual = salarioClt * 0.08 * 12;
-        const benefAnual = benef * 12;
-        const anualCltTotal = (liquidoCltMensal * 12) + decimoTerceiro + (feriasUmTerco - liquidoCltMensal) + fgtsAnual + benefAnual;
+        const fgts = brutoClt * 0.08;
+        const decimoProporcional = liquidoClt / 12;
+        const feriasProporcional = (brutoClt * 1.3333 - inssClt - irrfClt) / 12;
+        const totalRealClt = liquidoClt + totalBeneficios + fgts + decimoProporcional + feriasProporcional;
 
-        // Cálculos PJ
-        let aliquotaImposto = 0.06;
-        if (regime === 'simples-anexo5') aliquotaImposto = 0.155;
-        if (regime === 'lucro-presumido') aliquotaImposto = 0.1633;
+        // Faturamento PJ recomendado: aproximadamente 30% a mais que o total real CLT para superar custos e gerar economia
+        const aliquotaSimples = 0.06;
+        const custoContabilidade = 195.00;
+        const inssProLabore = 167.00;
+        const pjSugerido = Math.round((totalRealClt + custoContabilidade + inssProLabore) / (1 - aliquotaSimples));
+        const impostoPj = pjSugerido * aliquotaSimples;
+        const liquidoPj = pjSugerido - impostoPj - inssProLabore - custoContabilidade;
+        const vantagem = liquidoPj - totalRealClt;
 
-        const impostoPj = fatPj * aliquotaImposto;
-        const proLabore = Math.max(1518, fatPj * 0.28);
-        const inssPj = Math.min(proLabore * 0.11, 7786.02 * 0.11);
-        const liquidoPjMensal = fatPj - impostoPj - inssPj - mensalidadeContab;
-        const anualPjTotal = liquidoPjMensal * 12;
-
-        const diferencaAnual = anualPjTotal - anualCltTotal;
-        const pjMinimoIdeal = (anualCltTotal / 12) / (1 - aliquotaImposto - 0.03);
-
-        const fmt = val => 'R$ ' + Math.round(val).toLocaleString('pt-BR');
-
-        // Preencher CLT
-        document.getElementById('res-clt-liquido').textContent = fmt(liquidoCltMensal);
+        document.getElementById('res-clt-bruto').textContent = fmt(brutoClt);
         document.getElementById('res-clt-inss').textContent = '- ' + fmt(inssClt);
-        document.getElementById('res-clt-irpf').textContent = '- ' + fmt(irpfClt);
-        document.getElementById('res-clt-benef-val').textContent = '+ ' + fmt(benef);
-        document.getElementById('res-clt-13').textContent = '+ ' + fmt(decimoTerceiro);
-        document.getElementById('res-clt-ferias').textContent = '+ ' + fmt(feriasUmTerco);
-        document.getElementById('res-clt-fgts').textContent = '+ ' + fmt(fgtsAnual);
-        document.getElementById('res-clt-anual').textContent = fmt(anualCltTotal);
+        document.getElementById('res-clt-irrf').textContent = '- ' + fmt(irrfClt);
+        document.getElementById('res-clt-liquido').textContent = fmt(liquidoClt);
+        document.getElementById('res-clt-beneficios').textContent = '+ ' + fmt(totalBeneficios);
+        document.getElementById('res-clt-fgts').textContent = '+ ' + fmt(fgts);
+        document.getElementById('res-clt-decimo').textContent = '+ ' + fmt(decimoProporcional + feriasProporcional);
+        document.getElementById('res-clt-total-real').textContent = fmt(totalRealClt);
 
-        // Preencher PJ
-        document.getElementById('res-pj-liquido').textContent = fmt(liquidoPjMensal);
-        document.getElementById('res-pj-fat-val').textContent = fmt(fatPj);
+        document.getElementById('res-pj-sugerido').textContent = fmt(pjSugerido);
+        document.getElementById('res-pj-bruto').textContent = fmt(pjSugerido);
         document.getElementById('res-pj-imposto').textContent = '- ' + fmt(impostoPj);
-        document.getElementById('res-pj-inss').textContent = '- ' + fmt(inssPj);
-        document.getElementById('res-pj-contab').textContent = '- ' + fmt(mensalidadeContab);
-        document.getElementById('res-pj-anual').textContent = fmt(anualPjTotal);
+        document.getElementById('res-pj-inss').textContent = '- ' + fmt(inssProLabore);
+        document.getElementById('res-pj-liquido').textContent = fmt(liquidoPj);
+        document.getElementById('res-pj-vantagem').textContent = (vantagem >= 0 ? '+ ' : '') + fmt(vantagem) + ' /mês';
 
-        // Veredito
-        const bannerTitle = document.getElementById('res-winner-title');
-        const bannerDesc = document.getElementById('res-winner-desc');
-        const diferencaSpan = document.getElementById('res-pj-diferenca');
-        const pjMinimoEl = document.getElementById('res-pj-minimo');
+        const ctaLink = document.getElementById('cpj-cta-link');
+        if (ctaLink) {
+            ctaLink.href = `/orcamento?servico=transicao-pj&salario=${encodeURIComponent(brutoClt)}&pj_sugerido=${encodeURIComponent(pjSugerido)}`;
+        }
 
-        pjMinimoEl.textContent = fmt(pjMinimoIdeal) + ' / mês';
-
-        if (diferencaAnual > 0) {
-            bannerTitle.innerHTML = `Ganho Extra como PJ: <span class="text-green">+ ${fmt(diferencaAnual)} / ano</span>`;
-            bannerDesc.textContent = `Vantagem clara para PJ! Você recebe ${fmt(liquidoPjMensal - liquidoCltMensal)} a mais todo mês, superando com folga o 13º e férias da CLT.`;
-        } else {
-            bannerTitle.innerHTML = `Neste valor, a CLT está empatada ou superior: <span style="color: #ea580c;">${fmt(Math.abs(diferencaAnual))} / ano</span>`;
-            bannerDesc.innerHTML = `Para valer a pena a transição para PJ, sugerimos negociar sua remuneração para pelo menos <strong>${fmt(pjMinimoIdeal)}/mês</strong>.`;
+        if (resultsCard) {
+            resultsCard.classList.add('show');
+            resultsCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     }
 
     btnCalc?.addEventListener('click', calcular);
-    inBruto?.addEventListener('input', calcular);
-    inDep?.addEventListener('input', calcular);
-    inBenef?.addEventListener('input', calcular);
-    inFatPj?.addEventListener('input', calcular);
-    selRegime?.addEventListener('change', calcular);
-    inMensalidade?.addEventListener('input', calcular);
 
-    calcular();
+    // TABS SWITCHER
+    const tabBtns = document.querySelectorAll('.cpj-tab-btn');
+    const tabContents = document.querySelectorAll('.cpj-tab-content-box');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-tab');
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            this.classList.add('active');
+            const target = document.getElementById(targetId);
+            if (target) target.classList.add('active');
+        });
+    });
 });
 </script>
 @endsection

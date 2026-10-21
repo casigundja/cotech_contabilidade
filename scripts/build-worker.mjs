@@ -1,5 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { execSync } from "node:child_process";
+
+execSync("node scripts/generate-worker-calculators.mjs", { stdio: "inherit" });
+
 const output = path.resolve("build/cloudflare");
 if (output !== path.join(process.cwd(), "build", "cloudflare"))
     throw new Error("Unexpected build directory");

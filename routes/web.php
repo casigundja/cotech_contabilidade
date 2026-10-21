@@ -5,10 +5,11 @@ use App\Http\Controllers\{PublicController,AuthController,AdminController,Conten
 use App\Models\Content;
 Route::get('/',[PublicController::class,'home'])->name('home');
 Route::get('/servicos',[PublicController::class,'services'])->name('services');
+Route::redirect('/servicos/servicos-para-meia', '/servicos/servicos-para-mei', 301);
 Route::get('/servicos/{slug}',fn($slug)=>app(PublicController::class)->show('service',$slug));
 Route::get('/blog',fn()=>app(PublicController::class)->listing('post'));
 Route::get('/blog/{slug}',fn($slug)=>app(PublicController::class)->show('post',$slug));
-Route::get('/calculadoras',[PublicController::class,'calculators'])->name('calculators');
+Route::redirect('/calculadoras', '/calculadora-de-custo-para-tirar-cnpj', 301);
 Route::get('/calculadora-de-custo-para-tirar-cnpj',[PublicController::class,'calculadoraCnpj'])->name('calc.cnpj');
 Route::get('/calculadora-clt-pj',[PublicController::class,'calculadoraCltPj'])->name('calc.clt-pj');
 Route::get('/calculadora-fator-r',[PublicController::class,'calculadoraFatorR'])->name('calc.fator-r');

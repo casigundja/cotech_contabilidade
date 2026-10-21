@@ -1,334 +1,304 @@
 @extends('layouts.public')
-@section('title', 'Calculadora de Fator R Simples Nacional | Pague 6% de Imposto | Cotech')
-@section('description', 'Calcule grátis o Fator R da sua empresa. Descubra se você se enquadra no Anexo III (6%) ou Anexo V (15,5%) do Simples Nacional e veja como reduzir seus impostos.')
+@section('title', 'Calculadora Fator R - Simples Nacional 2026 | Cotech Contabilidade')
+@section('description', 'A calculadora Fator R ajuda você a entender se é possível economizar em impostos, de forma legal, com base no valor da folha de pagamento da sua empresa no Simples Nacional.')
 
 @section('content')
-<!-- BREADCRUMB -->
-<div class="calc-breadcrumb-bar">
-    <div class="container">
-        <nav aria-label="Navegação estrutural">
-            <a href="/">Início</a>
-            <span class="sep">/</span>
-            <a href="/calculadoras">Calculadoras</a>
-            <span class="sep">/</span>
-            <span class="current">Calculadora de Fator R</span>
-        </nav>
+<div class="cfr-page">
+    <!-- BREADCRUMB -->
+    <div class="cbr-breadcrumb-bar">
+        <div class="container">
+            <nav class="cbr-breadcrumb" aria-label="Navegação estrutural">
+                <a href="/">Materiais</a>
+                <span class="sep">></span>
+                <span class="current">Calculadora</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 01. HERO & FORM -->
+    <div class="cfr-hero-section">
+        <div class="cfr-hero-container">
+            <h1 class="cfr-main-title">Calculadora Fator R - Simples Nacional 2026</h1>
+            <p class="cfr-lead-p">A calculadora Fator R é uma ferramenta criada para ajudar você a entender se é possível economizar em impostos, de forma legal, com base no valor da folha de pagamento da sua empresa.</p>
+            <p class="cfr-sublead">Para realizar o cálculo, basta preencher os campos abaixo:</p>
+        </div>
+
+        <!-- FORM CARD -->
+        <div class="cfr-card">
+            <!-- FIELD 1: OPTANTE SIMPLES -->
+            <div class="cfr-group">
+                <label class="cfr-label">Sua empresa é optante pelo Simples Nacional?</label>
+                <div class="cfr-radio-group">
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_simples" value="sim" checked> Sim
+                    </label>
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_simples" value="nao"> Não
+                    </label>
+                </div>
+            </div>
+
+            <!-- FIELD 2: ATIVIDADE -->
+            <div class="cfr-group">
+                <label for="cfr-atividade" class="cfr-label">Qual a atividade da sua empresa?*</label>
+                <select id="cfr-atividade" class="cfr-select">
+                    <option value="" disabled selected>Selecione a atividade da sua empresa</option>
+                    <option value="ti">Tecnologia, TI e Desenvolvimento de Software</option>
+                    <option value="consultoria">Consultoria Empresarial, Finanças e Gestão</option>
+                    <option value="engenharia">Engenharia, Arquitetura e Urbanismo</option>
+                    <option value="saude">Medicina, Odontologia e Saúde</option>
+                    <option value="psicologia">Psicologia, Terapia e Fisioterapia</option>
+                    <option value="pericia">Perícia, Auditoria e Avaliações</option>
+                    <option value="marketing">Marketing, Design e Criação</option>
+                    <option value="outros">Outras atividades de prestação de serviços</option>
+                </select>
+            </div>
+
+            <!-- FIELD 3: FATURAMENTO BRUTO -->
+            <div class="cfr-group">
+                <label for="cfr-faturamento" class="cfr-label">
+                    Qual seu faturamento bruto mensal médio?*
+                    <span class="tip" title="Receita bruta média mensal apurada nos últimos 12 meses">ⓘ</span>
+                </label>
+                <input type="text" id="cfr-faturamento" class="cfr-input" value="R$ 20.000,00" placeholder="R$ 0,00">
+            </div>
+
+            <!-- FIELD 4: PRO-LABORE -->
+            <div class="cfr-group">
+                <label class="cfr-label">Você recebe pró-labore?</label>
+                <div class="cfr-radio-group">
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_prolabore" value="sim" id="cfr-prolabore-sim"> Sim
+                    </label>
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_prolabore" value="nao" id="cfr-prolabore-nao" checked> Não
+                    </label>
+                </div>
+                <div id="cfr-campo-prolabore" class="cfr-conditional-field">
+                    <label for="cfr-val-prolabore" class="cfr-label" style="font-size: 13px;">Qual o valor mensal do pró-labore?</label>
+                    <input type="text" id="cfr-val-prolabore" class="cfr-input" value="R$ 3.000,00" placeholder="R$ 0,00">
+                </div>
+            </div>
+
+            <!-- FIELD 5: FUNCIONARIOS -->
+            <div class="cfr-group">
+                <label class="cfr-label">Você tem funcionários?</label>
+                <div class="cfr-radio-group">
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_funcionarios" value="sim" id="cfr-func-sim"> Sim
+                    </label>
+                    <label class="cfr-radio-label">
+                        <input type="radio" name="cfr_funcionarios" value="nao" id="cfr-func-nao" checked> Não
+                    </label>
+                </div>
+                <div id="cfr-campo-folha" class="cfr-conditional-field">
+                    <label for="cfr-val-folha" class="cfr-label" style="font-size: 13px;">Qual o valor mensal da folha de salários?</label>
+                    <input type="text" id="cfr-val-folha" class="cfr-input" value="R$ 3.000,00" placeholder="R$ 0,00">
+                </div>
+            </div>
+
+            <div class="cfr-legal-note">
+                <p style="margin: 0 0 10px;">Cálculo atualizado em 2026.</p>
+                <p style="margin: 0 0 10px;">Ao utilizar esta ferramenta, você declara estar ciente de que os valores apresentados são apenas estimativas e concorda com a nossa <a href="/pagina/privacidade">Política de Privacidade</a>, Política de Cookies e Termos de Uso. A Cotech não se responsabiliza pelo uso das informações, cabendo ao usuário avaliar sua aplicação em conjunto com um contador qualificado. Para saber mais sobre os critérios utilizados nos cálculos, <a href="#consideracoes">clique aqui</a>.</p>
+                <p style="margin: 0;"><strong>Importante:</strong> o Fator R é calculado a partir da média da folha de pagamento e da receita bruta dos últimos 12 meses. Se sua empresa tem menos de 12 meses, os dados podem ser insuficientes.</p>
+            </div>
+
+            <button type="button" id="cfr-btn-submit" class="cfr-btn-calc">CALCULAR FATOR R</button>
+
+            <!-- DYNAMIC RESULT BOX -->
+            <div id="cfr-result-box" class="cfr-result-box">
+                <div id="cfr-res-badge" class="cfr-res-badge anexo-3">Anexo III (6%)</div>
+                <div id="cfr-res-score" class="cfr-res-score">30.0%</div>
+                <p id="cfr-res-desc" class="cfr-res-desc">Parabéns! Sua folha representa mais de 28% do faturamento. Sua empresa tem direito a pagar a alíquota reduzida de 6% no Simples Nacional.</p>
+                <div id="cfr-res-saving-box" style="background: #f8fafc; border-radius: 6px; padding: 12px 14px; margin-bottom: 16px; font-size: 13.5px; color: #002b49;">
+                    <span>Economia mensal estimada em impostos:</span>
+                    <strong id="cfr-res-saving" style="color: #059669; display: block; font-size: 17px; margin-top: 4px;">R$ 1.900,00 /mês</strong>
+                </div>
+                <a id="cfr-cta-link" href="/orcamento?servico=fator-r" class="cfr-res-cta">Quero Otimizar meus Impostos com a Cotech ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 02. TWO-TONE BANNER SECTION (PRINT 2) -->
+    <section class="cfr-section-banner" id="consideracoes">
+        <div class="cfr-banner-decor-circle" aria-hidden="true"></div>
+        <div class="cfr-banner-grid">
+            <div class="cfr-banner-left">
+                <span class="cfr-banner-eyebrow">FATOR R</span>
+                <h2>Considerações importantes sobre a calculadora de Fator R</h2>
+            </div>
+            <div class="cfr-banner-right-box">
+                <p>O uso do Fator R é uma forma legal de pagar menos impostos, sendo considerado um instrumento de elisão fiscal. O cálculo Fator R se aplica apenas às empresas optantes pelo Simples Nacional e em determinadas atividades empresariais (verificar parágrafo abaixo).</p>
+                <p>Para calcular o Fator R, preencha os campos da calculadora para distinção entre atividades permitidas e não permitidas, assim como para a verificação se a empresa faz parte do Simples Nacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. DETAILED CONTENT (PRINT 2 & 3) -->
+    <div class="cfr-section-content">
+        <!-- O QUE É O FATOR R -->
+        <div class="cfr-content-block">
+            <h2>O que é o Fator R</h2>
+            <p>O Fator R é um cálculo que determina em qual anexo do Simples Nacional sua empresa de serviços será tributada. Ele representa a proporção entre a sua folha de pagamento e sua receita bruta, considerando sempre o acumulado dos últimos 12 meses.</p>
+            <p>O resultado desse cálculo define se sua empresa pagará impostos pelas alíquotas do <strong>Anexo V</strong> (geralmente mais altas) ou do <strong>Anexo III</strong> (mais baixas e vantajosas).</p>
+            
+            <p>O Fator R funciona assim:</p>
+            <ul>
+                <li>Se a sua folha de pagamento for <strong>igual ou superior a 28%</strong> do seu faturamento bruto, sua empresa é tributada pelo <strong>Anexo III</strong>, com alíquotas a partir de <strong>6%</strong>.</li>
+                <li>Se a sua folha de pagamento for <strong>inferior a 28%</strong> do faturamento, a tributação ocorre pelo <strong>Anexo V</strong>, com alíquotas a partir de <strong>15,5%</strong>.</li>
+            </ul>
+
+            <p>É importante destacar que o cálculo do Fator R é feito mensalmente, utilizando o período acumulado dos últimos 12 meses. Por isso, o enquadramento da sua empresa pode mudar de um mês para o outro.</p>
+            <p>Confira com os contadores da Cotech como ajustar legalmente o seu pró-labore para garantir que sua empresa permaneça sempre na faixa mais econômica de 6% do Simples Nacional.</p>
+        </div>
+
+        <!-- COMO CALCULAR O FATOR R -->
+        <div class="cfr-content-block">
+            <h2>Como calcular o Fator R do Simples Nacional?</h2>
+            <p>Para calcular o Fator R, utiliza-se a seguinte fórmula:</p>
+
+            <div class="cfr-formula-box">
+                Fator R = Total de gastos com folha de pagamento acumulado nos últimos 12 meses ÷ receita bruta acumulada nos últimos 12 meses.
+            </div>
+
+            <h3>O que compõe cada parte da fórmula?</h3>
+            <ul>
+                <li><strong>Gastos com folha de pagamento acumulada:</strong> é a soma de todos os valores pagos a título de remuneração nos últimos 12 meses. Isso inclui: salários de funcionários, pró-labore dos sócios, pagamentos de autônomos, e os encargos sobre esses valores, como o INSS e o FGTS.</li>
+                <li><strong>Receita Bruta (RBT12):</strong> é o valor total das vendas de produtos e/ou serviços da sua empresa nos últimos 12 meses, sem a dedução de custos ou impostos.</li>
+            </ul>
+
+            <div class="cfr-example-card">
+                <h3 style="margin-top: 0;">Exemplo prático:</h3>
+                <p>Imagine que a receita bruta acumulada da sua empresa nos últimos 12 meses foi de <strong>R$ 120.000,00</strong>. No mesmo período, a soma de todos os gastos com folha de pagamento (salários + pró-labore + encargos) foi de <strong>R$ 42.000,00</strong>.</p>
+                
+                <p><strong>Cálculo:</strong></p>
+                <ul>
+                    <li>Fator R = R$ 42.000,00 / R$ 120.000,00</li>
+                    <li>Fator R = 0,35</li>
+                </ul>
+
+                <p><strong>Conversão para percentual:</strong></p>
+                <ul>
+                    <li>0,35 * 100 = <strong>35%</strong></li>
+                </ul>
+
+                <p><strong>Resultado:</strong> Como o Fator R de 35% é superior a 28%, a empresa será tributada pelo <strong>Anexo III do Simples Nacional</strong>, garantindo uma alíquota de imposto a partir de 6% em vez de 15,5%.</p>
+            </div>
+
+            <h3>Considerações importantes:</h3>
+            <ul>
+                <li><strong>Planejamento Tributário Legal:</strong> utilizar o Fator R para ajustar o pró-labore e se enquadrar no Anexo III é uma estratégia de <strong>elisão fiscal</strong>. Trata-se de uma prática 100% legal que usa as regras da própria legislação para reduzir a carga de impostos da sua empresa.</li>
+                <li><strong>Regime Tributário:</strong> o Fator R aplica-se exclusivamente para empresas do Simples Nacional.</li>
+                <li><strong>Atividades Aplicáveis:</strong> o cálculo é relevante para empresas que exercem atividades de natureza intelectual, técnica, científica, cultural, entre outras, que são tributadas com base na relação entre os Anexos III e V. Alguns exemplos são: Arquitetura e Urbanismo, Fisioterapia, Medicina, Odontologia, Psicologia, Engenharia, Desenvolvimento de Software e Tecnologia da Informação, Consultoria Empresarial, Perícia e Auditoria.</li>
+            </ul>
+        </div>
+
+        <!-- CTA FINAL COTECH -->
+        <div style="background: #002b49; color: #ffffff; border-radius: 12px; padding: 36px 32px; text-align: center; margin-top: 30px;">
+            <h3 style="color: #ffffff; font-size: 24px; margin: 0 0 10px;">Quer reduzir os impostos da sua empresa com segurança?</h3>
+            <p style="color: #cbd5e1; font-size: 15px; margin: 0 0 24px; max-width: 600px; margin-left: auto; margin-right: auto;">Nossos contadores analisam seu faturamento e folha sem compromisso para você usufruir da alíquota mínima de 6% no Simples Nacional.</p>
+            <a href="/orcamento?servico=fator-r" class="cbr-btn-cyan">Falar com nossos Contadores Especialistas ↗</a>
+        </div>
     </div>
 </div>
 
-<!-- HERO DA PÁGINA -->
-<div class="calc-page-hero">
-    <div class="container" data-reveal>
-        <span class="eyebrow">PLANEJAMENTO TRIBUTÁRIO SIMPLES NACIONAL</span>
-        <h1>Calculadora de Fator R<br><span class="ink-blue">pague 6% em vez de 15,5% de imposto</span></h1>
-        <p class="muted">O Fator R é o cálculo que define se a sua empresa de serviços será tributada pelo Anexo III (alíquota inicial de 6%) ou pelo Anexo V (alíquota inicial de 15,5%). Simule seus números e descubra a economia real.</p>
-    </div>
-</div>
-
-<!-- SECTION CALCULADORA INTERATIVA -->
-<section class="section calc-main-section">
-    <div class="container">
-        <div class="calc-card-grid">
-            <!-- FORMULÁRIO DE ENTRADA -->
-            <div class="calc-inputs-card" data-reveal>
-                <div class="calc-card-header">
-                    <span class="calc-step-tag">SIMULAÇÃO FISCAL</span>
-                    <h3>Calcule o enquadramento da sua empresa</h3>
-                    <p class="calc-subtitle">Preencha os dados de faturamento e despesas com folha e pró-labore dos últimos 12 meses (ou média mensal).</p>
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="fator-atividade">1. Qual a atividade da sua empresa? *</label>
-                    <select id="fator-atividade" class="calc-input">
-                        <option value="ti" selected>Desenvolvimento de Software / TI / Dados / Cyber</option>
-                        <option value="consultoria">Consultoria Empresarial / Gestão / Finanças</option>
-                        <option value="marketing">Marketing Digital / Publicidade / Design / Criação</option>
-                        <option value="engenharia">Engenharia / Arquitetura / Agronomia</option>
-                        <option value="saude">Medicina / Psicologia / Odontologia / Fisioterapia</option>
-                        <option value="advocacia">Serviços Jurídicos / Advocacia</option>
-                        <option value="outra">Outras atividades de prestação de serviços</option>
-                    </select>
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="fator-faturamento">2. Faturamento Bruto Médio Mensal (R$) *</label>
-                    <input type="number" id="fator-faturamento" class="calc-input" value="20000" min="1000" step="1000">
-                    <small class="calc-field-help">Valor total das notas fiscais emitidas no mês (ou média dos últimos 12 meses).</small>
-                </div>
-
-                <div class="calc-form-group">
-                    <label for="fator-folha">3. Folha de Pagamento Total Mensal (R$) *</label>
-                    <input type="number" id="fator-folha" class="calc-input" value="6000" min="0" step="500">
-                    <small class="calc-field-help">Soma de salários de empregados, encargos sociais (INSS/FGTS) e <strong>pró-labore retirado pelos sócios</strong>.</small>
-                </div>
-
-                <div class="calc-form-group">
-                    <div class="calc-toggles-row">
-                        <label class="calc-checkbox-label">
-                            <input type="checkbox" id="fator-tem-prolabore" checked>
-                            <span>Os sócios já retiram Pró-labore mensal</span>
-                        </label>
-                        <label class="calc-checkbox-label">
-                            <input type="checkbox" id="fator-tem-funcionarios">
-                            <span>A empresa possui funcionários registrados</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button type="button" class="button blue-button full-width" id="btn-calc-fator">Calcular Fator R Agora ↗</button>
-            </div>
-
-            <!-- RESULTADOS DO FATOR R -->
-            <div class="calc-results-card" data-reveal>
-                <span class="calc-badge-green">DIAGNÓSTICO FISCAL</span>
-
-                <div class="calc-result-header">
-                    <small>Seu Fator R Calculado:</small>
-                    <div class="calc-big-value" id="res-fator-percent">30,0%</div>
-                    <div class="fator-badge-status" id="res-fator-badge" style="background: #10b981;">ANEXO III — 6% DE IMPOSTO</div>
-                </div>
-
-                <div class="calc-breakdown-list">
-                    <div class="breakdown-item">
-                        <span>Alíquota Inicial Aplicada:</span>
-                        <strong id="res-fator-aliquota">6,0% (Anexo III)</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Imposto Simples Nacional (DAS):</span>
-                        <strong class="text-blue" id="res-fator-imposto">R$ 1.200,00 / mês</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Imposto se tributado no Anexo V:</span>
-                        <strong class="text-strike" id="res-fator-anexo5">R$ 3.100,00 / mês</strong>
-                    </div>
-                    <div class="breakdown-item highlight-saving">
-                        <span>Economia Mensal com a Cotech:</span>
-                        <strong class="text-green" id="res-fator-economia">R$ 1.900,00 / mês</strong>
-                    </div>
-                    <div class="breakdown-item">
-                        <span>Economia Anual Estimada:</span>
-                        <strong class="text-green" id="res-fator-anual">R$ 22.800,00 / ano</strong>
-                    </div>
-                </div>
-
-                <!-- ALERTA / ORIENTAÇÃO INTELIGENTE -->
-                <div class="calc-fator-advice" id="res-fator-advice">
-                    <p>✓ <strong>Excelente resultado!</strong> Seu Fator R é de 30%, superando a meta legal de 28%. A Cotech assegura a apuração mensal correta para você recolher impostos pela menor alíquota permitida por lei.</p>
-                </div>
-
-                <div class="calc-cta-box">
-                    <a class="button blue-button full-width" href="/orcamento?servico=fator-r">Otimizar Meus Impostos na Cotech ↗</a>
-                    <span class="calc-security-note">🔒 Contabilidade estratégica sem risco de autuações fiscais.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SEÇÃO EDUCATIVA: O QUE É FATOR R -->
-<section class="section calc-info-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">ENTENDA AS REGRAS</span>
-        <h2>O que é o Fator R e como funciona a regra dos 28%?</h2>
-        <p class="muted">Criado pela Lei Complementar nº 155/2016, o Fator R é um mecanismo do Simples Nacional que premia empresas de serviços que investem em remuneração de pessoas (folha de salários e pró-labore):</p>
-
-        <div class="calc-info-grid">
-            <div class="calc-info-card">
-                <div class="calc-info-icon">📊</div>
-                <h3>A Regra Matemática dos 28%</h3>
-                <p>O Fator R é a divisão simples entre o valor total gasto com folha de pagamento nos últimos 12 meses e a receita bruta do mesmo período. Se a razão for <strong>igual ou superior a 28%</strong>, a empresa é tributada pelo favorável <strong>Anexo III (a partir de 6%)</strong>. Se for menor que 28%, cai no pesado <strong>Anexo V (a partir de 15,5%)</strong>.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">💡</div>
-                <h3>Estratégia do Pró-labore Inteligente</h3>
-                <p>Mesmo que você não tenha funcionários registrados, o <strong>pró-labore dos sócios conta como folha de pagamento</strong>! A Cotech calcula rigorosamente todo mês qual deve ser sua retirada de pró-labore para manter seu Fator R cravado acima de 28%, gerando economia líquida enorme.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">🎯</div>
-                <h3>Atividades Beneficiadas</h3>
-                <p>Desenvolvedores de software, profissionais de TI, engenheiros, arquitetos, publicitários, médicos, psicólogos, consultores de negócios e diversas outras profissões regulamentadas estão na lista que pode usufruir do Fator R.</p>
-            </div>
-
-            <div class="calc-info-card">
-                <div class="calc-info-icon">🛡️</div>
-                <h3>Monitoramento Contínuo Cotech</h3>
-                <p>Nosso sistema monitora as oscilações do seu faturamento mês a mês para recalcular o pró-labore preventivamente. Você nunca é surpreendido com guias de DAS com alíquotas do Anexo V.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TABELA COMPARATIVA ANEXO III VS ANEXO V -->
-<section class="section calc-table-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">COMPARAÇÃO DIRETA</span>
-        <h2>Diferença de Alíquotas: Anexo III vs Anexo V</h2>
-        <p class="muted">Veja o impacto real na sua fatura de impostos conforme as faixas de faturamento do Simples Nacional:</p>
-
-        <div class="table-wrap">
-            <table class="calc-comparison-table">
-                <thead>
-                    <tr>
-                        <th>Faixa de Receita Anual</th>
-                        <th>Alíquota Anexo III (Fator R ≥ 28%)</th>
-                        <th>Alíquota Anexo V (Fator R &lt; 28%)</th>
-                        <th>Sua Economia com a Cotech</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Até R$ 180.000 / ano</strong></td>
-                        <td><strong class="text-green">6,00%</strong></td>
-                        <td>15,50%</td>
-                        <td><strong class="text-green">Economia de 9,5% do faturamento!</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>De R$ 180.000 a R$ 360.000</strong></td>
-                        <td><strong class="text-green">11,20%</strong></td>
-                        <td>18,00%</td>
-                        <td><strong class="text-green">Economia de 6,8%</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>De R$ 360.000 a R$ 720.000</strong></td>
-                        <td><strong class="text-green">13,50%</strong></td>
-                        <td>19,50%</td>
-                        <td><strong class="text-green">Economia de 6,0%</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>De R$ 720.000 a R$ 1.800.000</strong></td>
-                        <td><strong class="text-green">16,00%</strong></td>
-                        <td>20,50%</td>
-                        <td><strong class="text-green">Economia de 4,5%</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ ESPECÍFICO DE FATOR R -->
-<section class="section calc-faq-section">
-    <div class="container" data-reveal>
-        <span class="eyebrow">PERGUNTAS FREQUENTES</span>
-        <h2>Dúvidas comuns sobre o Fator R</h2>
-
-        <div class="faq-accordion-list">
-            <details class="faq-item">
-                <summary>Como calcular o Fator R de uma empresa aberta há menos de 12 meses?</summary>
-                <div class="faq-answer">
-                    <p>Para empresas recentes que ainda não completaram 12 meses de atividade, a Receita Federal utiliza uma regra de proporcionalização: no primeiro mês, multiplica-se a folha e o faturamento por 12; nos meses seguintes, calcula-se a média aritmética dos meses anteriores multiplicada por 12.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>O que conta exatamente como despesa de Folha de Pagamento?</summary>
-                <div class="faq-answer">
-                    <p>Entram na conta: o valor bruto dos salários dos funcionários CLT, 13º salário, férias pagas, o <strong>pró-labore dos sócios</strong> e os encargos patronais previdenciários e FGTS recolhidos.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Vale a pena aumentar o pró-labore apenas para atingir 28%?</summary>
-                <div class="faq-answer">
-                    <p>Na grande maioria esmagadora dos casos, <strong>sim!</strong> Mesmo recolhendo os 11% de INSS sobre a diferença do pró-labore, a redução da alíquota do imposto da nota (de 15,5% para 6%) gera uma economia líquida muito maior. Nossa equipe faz esse cálculo exato para você todo mês.</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>Se a minha empresa faturar menos em um mês, perco o enquadramento no Anexo III?</summary>
-                <div class="faq-answer">
-                    <p>Como o cálculo considera o acumulado dos últimos 12 meses (RBT12 e Folha12), uma oscilação pontual em um único mês não costuma derrubar o enquadramento imediatamente. A Cotech monitora a média móvel para prevenir qualquer desenquadramento.</p>
-                </div>
-            </details>
-        </div>
-    </div>
-</section>
-
-<!-- CALL TO ACTION FINAL -->
-<section class="section calc-final-cta">
-    <div class="container" data-reveal>
-        <div class="srv-callout-card">
-            <div class="srv-callout-content">
-                <span class="srv-callout-tag">GESTÃO FISCAL COTECH</span>
-                <h2>Pare de pagar imposto a mais por falta de planejamento</h2>
-                <p>Nossos contadores assumem a gestão completa do Simples Nacional da sua empresa, garantindo que você usufrua do Anexo III com total segurança jurídica.</p>
-                <div class="srv-callout-actions">
-                    <a class="button blue-button" href="/orcamento?servico=fator-r">Otimizar Meus Impostos Agora <span>↗</span></a>
-                    <a class="button srv-button-ghost" href="/calculadoras">Ver Outras Calculadoras <span>↗</span></a>
-                </div>
-            </div>
-            <div class="srv-callout-image">
-                <img src="/images/specialist-tablet.jpg" alt="Consultor Cotech planejando Fator R" width="460" height="420" loading="lazy">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- JAVASCRIPT DO CÁLCULO FATOR R -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const inFat = document.getElementById('fator-faturamento');
-    const inFolha = document.getElementById('fator-folha');
-    const selAtiv = document.getElementById('fator-atividade');
-    const btnCalc = document.getElementById('btn-calc-fator');
+    const inputFat = document.getElementById('cfr-faturamento');
+    const inputProlabore = document.getElementById('cfr-val-prolabore');
+    const inputFolha = document.getElementById('cfr-val-folha');
+    const radioProlaboreSim = document.getElementById('cfr-prolabore-sim');
+    const radioProlaboreNao = document.getElementById('cfr-prolabore-nao');
+    const campoProlabore = document.getElementById('cfr-campo-prolabore');
+    const radioFuncSim = document.getElementById('cfr-func-sim');
+    const radioFuncNao = document.getElementById('cfr-func-nao');
+    const campoFolha = document.getElementById('cfr-campo-folha');
+    const btnCalc = document.getElementById('cfr-btn-submit');
+    const resultBox = document.getElementById('cfr-result-box');
+
+    function parseMoney(val) {
+        if (!val) return 0;
+        const clean = String(val).replace(/[^\d]/g, '');
+        return (parseFloat(clean) || 0) / 100;
+    }
+
+    function fmt(val) {
+        return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function setupMoneyInput(el) {
+        if (!el) return;
+        el.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (!value) value = '0';
+            const num = parseFloat(value) / 100;
+            e.target.value = num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        });
+    }
+
+    [inputFat, inputProlabore, inputFolha].forEach(setupMoneyInput);
+
+    radioProlaboreSim?.addEventListener('change', function() {
+        if (this.checked) campoProlabore.classList.add('show');
+    });
+    radioProlaboreNao?.addEventListener('change', function() {
+        if (this.checked) campoProlabore.classList.remove('show');
+    });
+
+    radioFuncSim?.addEventListener('change', function() {
+        if (this.checked) campoFolha.classList.add('show');
+    });
+    radioFuncNao?.addEventListener('change', function() {
+        if (this.checked) campoFolha.classList.remove('show');
+    });
 
     function calcular() {
-        const fat = parseFloat(inFat.value) || 20000;
-        const folha = parseFloat(inFolha.value) || 0;
-        const ratio = fat > 0 ? (folha / fat) * 100 : 0;
-
-        const percentEl = document.getElementById('res-fator-percent');
-        const badge = document.getElementById('res-fator-badge');
-        const aliquotaEl = document.getElementById('res-fator-aliquota');
-        const impostoEl = document.getElementById('res-fator-imposto');
-        const anexo5El = document.getElementById('res-fator-anexo5');
-        const economiaEl = document.getElementById('res-fator-economia');
-        const anualEl = document.getElementById('res-fator-anual');
-        const advice = document.getElementById('res-fator-advice');
-
-        percentEl.textContent = ratio.toFixed(1).replace('.', ',') + '%';
-
-        const fmt = val => 'R$ ' + Math.round(val).toLocaleString('pt-BR');
-
-        const impostoAnexo5 = fat * 0.155;
-        const impostoAnexo3 = fat * 0.06;
-        const folhaMinima28 = fat * 0.28;
-
-        if (ratio >= 28) {
-            badge.textContent = "ANEXO III — 6% DE IMPOSTO (ENQUADRADO)";
-            badge.style.background = "#10b981";
-            aliquotaEl.textContent = "6,0% (Anexo III)";
-            impostoEl.textContent = fmt(impostoAnexo3) + ' / mês';
-            anexo5El.textContent = fmt(impostoAnexo5) + ' / mês';
-            const econ = impostoAnexo5 - impostoAnexo3;
-            economiaEl.textContent = fmt(econ) + ' / mês';
-            anualEl.textContent = fmt(econ * 12) + ' / ano';
-
-            advice.innerHTML = `<p>✓ <strong>Excelente resultado!</strong> Seu Fator R é de ${ratio.toFixed(1).replace('.', ',')}%, superando a meta legal de 28%. A Cotech assegura a apuração mensal correta para você recolher impostos pela menor alíquota permitida por lei.</p>`;
-        } else {
-            badge.textContent = "ALERTA: ANEXO V — 15,5% DE IMPOSTO";
-            badge.style.background = "#ef4444";
-            aliquotaEl.textContent = "15,5% (Anexo V)";
-            impostoEl.textContent = fmt(impostoAnexo5) + ' / mês';
-            anexo5El.textContent = fmt(impostoAnexo5) + ' / mês';
-            economiaEl.textContent = "R$ 0,00 (Sem benefício atual)";
-            anualEl.textContent = "R$ 0,00";
-
-            const diffFolha = folhaMinima28 - folha;
-            const economiaPotencial = impostoAnexo5 - impostoAnexo3;
-
-            advice.innerHTML = `<p>⚠️ <strong>Alerta de economia:</strong> Seu Fator R está em ${ratio.toFixed(1).replace('.', ',')}% (abaixo dos 28%). Com a assessoria da Cotech, ajustando seu pró-labore para <strong>${fmt(folhaMinima28)}/mês</strong> (+${fmt(diffFolha)}), sua empresa migra para o Anexo III e você <strong>economiza ${fmt(economiaPotencial)} todo mês (${fmt(economiaPotencial * 12)} por ano)</strong> em impostos!</p>`;
+        const fat = parseMoney(inputFat.value) || 20000;
+        let folhaTotal = 0;
+        if (radioProlaboreSim.checked) {
+            folhaTotal += parseMoney(inputProlabore.value);
         }
+        if (radioFuncSim.checked) {
+            folhaTotal += parseMoney(inputFolha.value);
+        }
+
+        // Se o usuário não marcou nenhum, consideramos folha atual 0 para simulação educativa
+        const fator = fat > 0 ? (folhaTotal / fat) : 0;
+        const percentual = (fator * 100);
+
+        const badgeEl = document.getElementById('cfr-res-badge');
+        const scoreEl = document.getElementById('cfr-res-score');
+        const descEl = document.getElementById('cfr-res-desc');
+        const savingEl = document.getElementById('cfr-res-saving');
+        const ctaLink = document.getElementById('cfr-cta-link');
+
+        scoreEl.textContent = percentual.toFixed(1) + '%';
+
+        if (percentual >= 28) {
+            badgeEl.className = 'cfr-res-badge anexo-3';
+            badgeEl.textContent = 'Enquadrada no Anexo III (6%) 🎉';
+            descEl.innerHTML = `Sua proporção folha/faturamento atingiu <strong>${percentual.toFixed(1)}%</strong> (superior ao limite de 28%). Sua empresa pagará a menor alíquota inicial do Simples Nacional de apenas <strong>6%</strong>.`;
+            const economia = fat * (0.155 - 0.06);
+            savingEl.textContent = fmt(economia) + ' /mês (' + fmt(economia * 12) + '/ano)';
+        } else {
+            badgeEl.className = 'cfr-res-badge anexo-5';
+            badgeEl.textContent = 'Enquadrada no Anexo V (15,5%) ⚠️';
+            const folhaNecessaria = fat * 0.28;
+            const falta = folhaNecessaria - folhaTotal;
+            descEl.innerHTML = `Seu Fator R atual é de <strong>${percentual.toFixed(1)}%</strong> (inferior a 28%). Ajustando seu pró-labore para <strong>${fmt(folhaNecessaria)}</strong>/mês (adicionando ${fmt(falta)}), sua empresa migra para o Anexo III pagando 6% em vez de 15,5%!`;
+            const economia = fat * (0.155 - 0.06);
+            savingEl.textContent = 'Potencial de economizar ' + fmt(economia) + ' /mês!';
+        }
+
+        if (ctaLink) {
+            ctaLink.href = `/orcamento?servico=fator-r&faturamento=${encodeURIComponent(fat)}&fator=${encodeURIComponent(percentual.toFixed(1))}`;
+        }
+
+        resultBox.classList.add('show');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     btnCalc?.addEventListener('click', calcular);
-    inFat?.addEventListener('input', calcular);
-    inFolha?.addEventListener('input', calcular);
-    selAtiv?.addEventListener('change', calcular);
-
-    calcular();
 });
 </script>
 @endsection

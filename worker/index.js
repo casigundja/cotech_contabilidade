@@ -40,6 +40,14 @@ import {
     leadTable,
     contentForm,
 } from "./views.js";
+import {
+    abrirCnpjTemplate,
+    cltPjTemplate,
+    fatorRTemplate,
+    rpaTemplate,
+    reformaTemplate,
+    coursesTemplate,
+} from "./calculator-templates.js";
 
 const app = new Hono();
 const db = (c) => c.get("sql");
@@ -252,15 +260,82 @@ app.get("/blog", async (c) => {
         ),
     );
 });
+const FALLBACK_SERVICES = {
+    "abertura-e-regularizacao-de-empresas": {
+        id: 18,
+        title: "🏢 Abertura e regularização de empresas",
+        summary: "Abertura ágil de empresas, regularização cadastral, emissão de alvarás e alterações contratuais sem burocracia.",
+        body: "Cuidamos de todas as etapas burocráticas para formalizar ou regularizar o seu negócio junto aos órgãos públicos (Receita Federal, Junta Comercial, Prefeitura e órgãos de classe). Realizamos desde a consulta de viabilidade de endereço e nome empresarial até a obtenção de alvarás, licenças e regularização de pendências cadastrais ou fiscais. Conte com a orientação da Cotech para iniciar suas atividades com segurança jurídica e no melhor regime tributário.",
+        image: "/images/cotech-abrir-empresa.jpg",
+        seo_title: "Abertura e Regularização de Empresas | Cotech Contabilidade",
+        meta_description: "Abra ou regularize sua empresa sem burocracia com a Cotech Contabilidade. Cuidamos do CNPJ, alvarás, licenças e enquadramento tributário ideal."
+    },
+    "abertura-de-cnpj": {
+        id: 19,
+        title: "Abertura de CNPJ",
+        summary: "Abra seu CNPJ com rapidez, suporte contábil completo e escolha do enquadramento tributário mais econômico.",
+        body: "Tenha o seu CNPJ ativo com agilidade e total conformidade. Analisamos detalhadamente a sua atividade (CNAE) para enquadrar sua empresa no modelo societário mais vantajoso (SLU, LTDA ou Empresário Individual) e na melhor tributação (Simples Nacional, Lucro Presumido ou Lucro Real). Nossa equipe acompanha todo o processo até a liberação para emissão de notas fiscais.",
+        image: "/images/guia-abrir-cnpj.jpg",
+        seo_title: "Abertura de CNPJ com Suporte Especializado | Cotech",
+        meta_description: "Abra seu CNPJ com agilidade, enquadramento correto e suporte dos contadores especialistas da Cotech. Simule custos e inicie agora."
+    },
+    "consultoria-tributaria-e-financeira": {
+        id: 20,
+        title: "💰 Consultoria tributária e financeira",
+        summary: "Planejamento tributário estratégico, redução legal de impostos, fluxo de caixa e gestão financeira para o seu crescimento.",
+        body: "Transforme seus números em decisões estratégicas. Nossa consultoria tributária analisa as particularidades do seu faturamento para identificar oportunidades de economia fiscal dentro da lei, recuperação de créditos e prevenção de riscos. Na gestão financeira, apoiamos a estruturação de fluxo de caixa, precificação de serviços e produtos e relatórios gerenciais para potencializar a rentabilidade do seu negócio.",
+        image: "/images/planejamento.jpeg",
+        seo_title: "Consultoria Tributária e Financeira Estratégica | Cotech",
+        meta_description: "Planejamento tributário para redução legal de impostos e consultoria financeira de alta performance para empresas em crescimento."
+    },
+    "departamento-pessoal-rh": {
+        id: 21,
+        title: "👥 Departamento pessoal / RH",
+        summary: "Gestão completa de folha de pagamento, admissões, rescisões, eSocial e cumprimento rigoroso das rotinas trabalhistas.",
+        body: "Tenha tranquilidade na gestão da sua equipe. Cuidamos de todo o processamento de folha de pagamento, cálculo de férias, 13º salário, rescisões, benefícios e pró-labore dos sócios. Mantemos sua empresa em total conformidade com o eSocial, FGTS Digital e a legislação trabalhista vigente, evitando passivos e garantindo uma relação saudável com seus colaboradores.",
+        image: "/images/contadores.jpeg",
+        seo_title: "Departamento Pessoal e RH para Empresas | Cotech",
+        meta_description: "Gestão completa de folha de pagamento, rotinas trabalhistas, eSocial e admissões com pontualidade e segurança jurídica."
+    },
+    "servicos-para-pessoa-fisica": {
+        id: 22,
+        title: "👤 Serviços para pessoa física",
+        summary: "Declaração de Imposto de Renda (IRPF), regularização de CPF, apuração de ganho de capital e assessoria para profissionais autônomos.",
+        body: "Suporte especializado para cuidar do seu patrimônio pessoal. Elaboramos e transmitimos a sua Declaração de Ajuste Anual do IRPF com foco na dedução correta e na prevenção de malha fina. Atendemos também autônomos e profissionais liberais com a emissão do Carnê-Leão, cálculo do recolhimento mensal obrigatório e planejamento para transição de PF para PJ quando mais vantajoso.",
+        image: "/images/contabilidade.jpeg",
+        seo_title: "Serviços Contábeis para Pessoa Física e Autônomos | Cotech",
+        meta_description: "Imposto de renda IRPF, Carnê-Leão, regularização de CPF e consultoria financeira pessoal com a Cotech Contabilidade."
+    },
+    "servicos-para-mei": {
+        id: 23,
+        title: "🧾 Serviços para MEIA",
+        summary: "Abertura, regularização do DASN-SIMEI, parcelamento de débitos, desenquadramento para ME e assessoria mensal para microempreendedores.",
+        body: "Atendimento sob medida para o Microempreendedor Individual (MEI). Apoiamos a formalização do MEI, emissão de guias DAS mensais, entrega da Declaração Anual (DASN-SIMEI) e parcelamento de pendências fiscais. E quando o seu faturamento ultrapassar o limite ou você precisar contratar mais colaboradores, realizamos a transição segura e planejada de MEI para Microempresa (ME).",
+        image: "/images/cotech-abrir-empresa.jpg",
+        seo_title: "Serviços Especializados para MEI | Cotech Contabilidade",
+        meta_description: "Assessoria completa para MEI: regularização de pendências, declaração anual DASN e desenquadramento para Microempresa."
+    }
+};
+
+app.get("/servicos/servicos-para-meia", (c) =>
+    c.redirect("/servicos/servicos-para-mei", 301),
+);
+
 for (const [path, type] of [
     ["/servicos/:slug", "service"],
     ["/blog/:slug", "post"],
     ["/pagina/:slug", "page"],
 ])
     app.get(path, async (c) => {
-        const sql = db(c),
-            [item] =
-                await sql`SELECT * FROM cotech.contents WHERE type=${type} AND slug=${c.req.param("slug")} AND ${published(sql)}`;
+        const sql = db(c);
+        let item = null;
+        try {
+            const rows = await sql`SELECT * FROM cotech.contents WHERE type=${type} AND slug=${c.req.param("slug")} AND ${published(sql)}`;
+            item = rows[0] || null;
+        } catch (_) {}
+        if (!item && type === "service" && FALLBACK_SERVICES[c.req.param("slug")]) {
+            item = FALLBACK_SERVICES[c.req.param("slug")];
+        }
         requireRow(item);
         return c.html(
             layout(
@@ -273,6 +348,75 @@ for (const [path, type] of [
             ),
         );
     });
+app.get("/calculadoras", (c) =>
+    c.redirect("/calculadora-de-custo-para-tirar-cnpj", 301),
+);
+app.get("/calculadora-de-custo-para-tirar-cnpj", (c) =>
+    c.html(
+        layout(
+            c,
+            "Calculadora de Custo para Abrir CNPJ 2026: Simule Taxas e Economia | Cotech",
+            abrirCnpjTemplate(c),
+            false,
+            "Simule grátis as taxas da Junta Comercial, alvará, certificado digital e veja quanto custa abrir seu CNPJ em 2026. Abra sua empresa com honorários grátis na Cotech.",
+        ),
+    ),
+);
+app.get("/calculadora-clt-pj", (c) =>
+    c.html(
+        layout(
+            c,
+            "Calculadora CLT x PJ: Compare Salário Líquido e Vantagens | Cotech",
+            cltPjTemplate(c),
+            false,
+            "Simule grátis a comparação entre salário CLT e contrato PJ. Descubra quanto faturar como CNPJ para ganhar mais, considerando impostos, benefícios, 13º e férias.",
+        ),
+    ),
+);
+app.get("/calculadora-fator-r", (c) =>
+    c.html(
+        layout(
+            c,
+            "Calculadora de Fator R Simples Nacional: Anexo III ou V | Cotech",
+            fatorRTemplate(c),
+            false,
+            "Calcule o Fator R da sua empresa em segundos e saiba se sua atividade pagará 6% ou 15,5% de alíquota no Simples Nacional.",
+        ),
+    ),
+);
+app.get("/calculadora-rpa-autonomo", (c) =>
+    c.html(
+        layout(
+            c,
+            "Calculadora de RPA Online: Recibo de Pagamento a Autônomo | Cotech",
+            rpaTemplate(c),
+            false,
+            "Simule o valor líquido do RPA com retenção de INSS, IRRF e ISS. Veja quando vale a pena abrir CNPJ para pagar menos impostos.",
+        ),
+    ),
+);
+app.get("/calculadora-reforma-tributaria", (c) =>
+    c.html(
+        layout(
+            c,
+            "Calculadora da Reforma Tributária: Impactos no seu Negócio | Cotech",
+            reformaTemplate(c),
+            false,
+            "Simule os impactos da Reforma Tributária (IBS e CBS) no seu faturamento, crédito tributário e precificação de serviços.",
+        ),
+    ),
+);
+app.get("/cursos", (c) =>
+    c.html(
+        layout(
+            c,
+            "Cotech Mais | Cursos e Capacitação para Profissionais PJ e Empresas",
+            coursesTemplate(c),
+            false,
+            "Aprenda a gerenciar as finanças da sua empresa, emitir notas fiscais, calcular impostos e precificar seus serviços com as trilhas práticas da Cotech Mais.",
+        ),
+    ),
+);
 app.get("/sitemap.xml", async (c) => {
     const sql = db(c),
         rows =
@@ -282,6 +426,12 @@ app.get("/sitemap.xml", async (c) => {
         "/servicos",
         "/blog",
         "/orcamento",
+        "/calculadora-de-custo-para-tirar-cnpj",
+        "/calculadora-clt-pj",
+        "/calculadora-fator-r",
+        "/calculadora-rpa-autonomo",
+        "/calculadora-reforma-tributaria",
+        "/cursos",
         ...rows.map(
             (x) =>
                 ({ service: "/servicos/", post: "/blog/", page: "/pagina/" })[

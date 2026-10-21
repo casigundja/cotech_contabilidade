@@ -253,50 +253,50 @@
         <div class="srv-solutions-grid">
             <!-- 1 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">🔑</div>
-                <h3>Certificado Digital Integrado</h3>
-                <p>Orientação e emissão rápida de e-CNPJ e e-CPF para você assinar documentos digitais e emitir notas fiscais com total validade jurídica.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">🏢</div>
+                <h3>Abertura e regularização de empresas</h3>
+                <p>Abertura ágil de empresas, regularização cadastral, emissão de alvarás e alterações contratuais sem burocracia.</p>
+                <a class="text-link" href="/servicos/abertura-e-regularizacao-de-empresas">Saiba mais ↗</a>
             </div>
 
             <!-- 2 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">👥</div>
-                <h3>Assessor & Analista Dedicados</h3>
-                <p>Nos planos avançados você conta com o apoio de um assessor contábil exclusivo que conhece o histórico e as peculiaridades da sua operação.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">📄</div>
+                <h3>Abertura de CNPJ</h3>
+                <p>Abra seu CNPJ com rapidez, suporte contábil completo e escolha do enquadramento tributário mais econômico.</p>
+                <a class="text-link" href="/servicos/abertura-de-cnpj">Saiba mais ↗</a>
             </div>
 
             <!-- 3 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">🏢</div>
-                <h3>Escritório Virtual e Endereço Fiscal</h3>
-                <p>Ideal para quem trabalha em home office e prefere não expor o endereço residencial, garantindo credibilidade para o registro do seu CNPJ.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">💰</div>
+                <h3>Consultoria tributária e financeira</h3>
+                <p>Planejamento tributário estratégico, redução legal de impostos, fluxo de caixa e gestão financeira para o seu crescimento.</p>
+                <a class="text-link" href="/servicos/consultoria-tributaria-e-financeira">Saiba mais ↗</a>
             </div>
 
             <!-- 4 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">📊</div>
-                <h3>BPO Financeiro e Conciliação</h3>
-                <p>Terceirize rotinas de contas a pagar, a receber e conciliação bancária diária com nossa equipe de especialistas em finanças corporativas.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">👥</div>
+                <h3>Departamento pessoal / RH</h3>
+                <p>Gestão completa de folha de pagamento, admissões, rescisões, eSocial e cumprimento rigoroso das rotinas trabalhistas.</p>
+                <a class="text-link" href="/servicos/departamento-pessoal-rh">Saiba mais ↗</a>
             </div>
 
             <!-- 5 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">💼</div>
-                <h3>Folha de Pagamento & Pró-labore</h3>
-                <p>Cálculo de pró-labore dos sócios, holerites de colaboradores, guias previdenciárias e total conformidade com as regras do eSocial.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">👤</div>
+                <h3>Serviços para pessoa física</h3>
+                <p>Declaração de Imposto de Renda (IRPF), regularização de CPF, apuração de ganho de capital e assessoria para autônomos.</p>
+                <a class="text-link" href="/servicos/servicos-para-pessoa-fisica">Saiba mais ↗</a>
             </div>
 
             <!-- 6 -->
             <div class="srv-sol-card" data-reveal>
-                <div class="srv-sol-icon">⚖️</div>
-                <h3>Planejamento Tributário & Societário</h3>
-                <p>Revisão periódica de enquadramento (Simples Nacional vs Lucro Presumido), alterações contratuais e estruturação societária preventiva.</p>
-                <a class="text-link" href="/orcamento">Saiba mais ↗</a>
+                <div class="srv-sol-icon">🧾</div>
+                <h3>Serviços para MEIA</h3>
+                <p>Abertura, regularização do DASN-SIMEI, parcelamento de débitos, desenquadramento para ME e assessoria para microempreendedores.</p>
+                <a class="text-link" href="/servicos/servicos-para-mei">Saiba mais ↗</a>
             </div>
         </div>
     </div>
