@@ -1,4 +1,4 @@
-﻿const menuButton = document.querySelector('[data-menu]');
+const menuButton = document.querySelector('[data-menu]');
 const mainNav = document.getElementById('main-nav');
 function closeMenu() { mainNav?.classList.remove('open'); menuButton?.setAttribute('aria-expanded', 'false'); }
 menuButton?.addEventListener('click', () => { const open = mainNav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); });
@@ -9,7 +9,7 @@ document.querySelectorAll('form[data-confirm]').forEach(form => form.addEventLis
 if (document.body.classList.contains('public-site')) {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } }), {threshold: .08});
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } }), { threshold: .08 });
     document.querySelectorAll('[data-reveal]').forEach(element => { element.classList.add('reveal-ready'); observer.observe(element); });
     reducedMotion.addEventListener('change', event => { if (event.matches) document.querySelectorAll('.reveal-ready').forEach(element => element.classList.add('revealed')); });
   }
@@ -32,7 +32,7 @@ if (document.body.classList.contains('public-site')) {
   const progress = document.querySelector('.scroll-progress');
   let scheduled = false;
   function refreshScroll() { const max = document.documentElement.scrollHeight - innerHeight; if (progress) progress.style.width = `${max > 0 ? scrollY / max * 100 : 0}%`; header?.classList.toggle('scrolled', scrollY > 20); scheduled = false; }
-  addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(refreshScroll); } }, {passive: true});
-  addEventListener('resize', refreshScroll, {passive: true});
+  addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(refreshScroll); } }, { passive: true });
+  addEventListener('resize', refreshScroll, { passive: true });
   refreshScroll();
 }

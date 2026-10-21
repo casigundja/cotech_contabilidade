@@ -22,6 +22,7 @@ import {
     esc,
     layout,
     home,
+    servicesPage,
     quote,
     pageHead,
     serviceCards,
@@ -235,27 +236,22 @@ app.get("/", async (c) =>
         ),
     ),
 );
-for (const [path, type] of [
-    ["/servicos", "service"],
-    ["/blog", "post"],
-])
-    app.get(path, async (c) => {
-        const sql = db(c),
-            items =
-                await sql`SELECT * FROM cotech.contents WHERE type=${type} AND ${published(sql)} ORDER BY sort,id LIMIT 12 OFFSET ${(page(c) - 1) * 12}`;
-        return c.html(
-            layout(
-                c,
-                type === "service" ? "Serviços" : "Conteúdos",
-                pageHead(
-                    type === "service"
-                        ? "Seu desafio. Nossa próxima missão."
-                        : "Ideias que abrem caminhos.",
-                ) +
-                    `<section class="section"><div class="container"><div class="${type === "service" ? "solution-grid" : "insight-grid"}">${items.length ? (type === "service" ? serviceCards(items) : postCards(items)) : "<p>Nenhum conteúdo publicado.</p>"}</div>${pager(c, items.length, 12)}</div></section>`,
-            ),
-        );
-    });
+app.get("/servicos", async (c) => {
+    return c.html(servicesPage(c));
+});
+app.get("/blog", async (c) => {
+    const sql = db(c),
+        items =
+            await sql`SELECT * FROM cotech.contents WHERE type='post' AND ${published(sql)} ORDER BY sort,id LIMIT 12 OFFSET ${(page(c) - 1) * 12}`;
+    return c.html(
+        layout(
+            c,
+            "Conteúdos",
+            pageHead("Ideias que abrem caminhos.") +
+                `<section class="section"><div class="container"><div class="insight-grid">${items.length ? postCards(items) : "<p>Nenhum conteúdo publicado.</p>"}</div>${pager(c, items.length, 12)}</div></section>`,
+        ),
+    );
+});
 for (const [path, type] of [
     ["/servicos/:slug", "service"],
     ["/blog/:slug", "post"],

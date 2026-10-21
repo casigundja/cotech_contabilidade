@@ -10,6 +10,33 @@ class PublicController extends Controller {
  public function home(Request $r) {
   return view('public.home',['services'=>Content::published()->where('type','service')->get(),'posts'=>Content::published()->where('type','post')->latest()->take(3)->get(),'team'=>Content::published()->where('type','team')->get(),'faqs'=>Content::published()->where('type','faq')->get(),'testimonials'=>Content::published()->where('type','testimonial')->where('authorized',true)->get(),'banners'=>Content::published()->where('type','banner')->get(),'certifications'=>Content::published()->where('type','certification')->get()]);
  }
+ public function services() {
+  return view('public.services', [
+   'services' => Content::published()->where('type', 'service')->get(),
+   'faqs' => Content::published()->where('type', 'faq')->get(),
+  ]);
+ }
+ public function calculators() {
+  return view('public.calculators');
+ }
+ public function calculadoraCnpj() {
+  return view('public.calculators.abrir-cnpj');
+ }
+ public function calculadoraCltPj() {
+  return view('public.calculators.clt-pj');
+ }
+ public function calculadoraFatorR() {
+  return view('public.calculators.fator-r');
+ }
+ public function calculadoraRpa() {
+  return view('public.calculators.rpa-autonomo');
+ }
+ public function calculadoraReforma() {
+  return view('public.calculators.reforma-tributaria');
+ }
+ public function courses() {
+  return view('public.courses');
+ }
  public function listing(string $type) { return view('public.listing',['type'=>$type,'items'=>Content::published()->where('type',$type)->paginate(12)]); }
  public function show(string $type,string $slug) { $item=Content::published()->where(compact('type','slug'))->firstOrFail(); return view('public.detail',compact('item')); }
  public function quote() { return view('public.quote',['services'=>Content::published()->where('type','service')->get()]); }
