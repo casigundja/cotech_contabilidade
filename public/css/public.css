@@ -256,7 +256,266 @@
   top: 0;
   width: 0;
   z-index: 50;
-  pointer-events: none
+  pointer-events: none;
+}
+
+/* =========================================================
+   COTECH HERO — Adaptado ao print (Clean, High-Converting)
+   ========================================================= */
+.cotech-hero {
+  background: #ffffff;
+  padding: 60px 0 85px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cotech-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.cotech-hero-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.cotech-hero-title {
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -1.8px;
+  color: #0e1b2e;
+  margin: 0 0 20px;
+}
+
+.cotech-hero-title .highlight-blue {
+  color: #004de6;
+  font-weight: 800;
+}
+
+.cotech-hero-subtitle {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #475569;
+  max-width: 500px;
+  margin: 0 0 34px;
+  font-weight: 450;
+}
+
+.cotech-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.cotech-btn-cyan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #00e5db;
+  color: #032030;
+  font-weight: 750;
+  font-size: 14px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 229, 219, 0.28);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.cotech-btn-cyan:hover {
+  background: #00d2c9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 229, 219, 0.42);
+  color: #01141f;
+}
+
+.cotech-btn-outline-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f0fe;
+  color: #004de6;
+  font-weight: 650;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1.5px solid #3b82f6;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cotech-btn-outline-blue:hover {
+  background: #dbeafe;
+  border-color: #2563eb;
+  color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.18);
+}
+
+.cotech-hero-stats {
+  display: flex;
+  align-items: stretch;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.cotech-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cotech-stat-item:not(.first) {
+  border-left: 2px solid #004de6;
+  padding-left: 18px;
+}
+
+.cotech-stat-item .stat-number {
+  font-size: 17.5px;
+  font-weight: 850;
+  color: #0e1b2e;
+  line-height: 1.2;
+}
+
+.cotech-stat-item .stat-desc {
+  font-size: 11px;
+  line-height: 1.35;
+  color: #64748b;
+  max-width: 120px;
+}
+
+.cotech-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cotech-photo-container {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  height: 490px;
+  border-radius: 24px 24px 24px 110px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.16);
+  background: #071f5e;
+}
+
+.cotech-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.cotech-photo-wave {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(180deg, transparent 72%, rgba(7, 31, 94, 0.5) 88%, rgba(7, 31, 94, 0.9) 100%),
+    radial-gradient(circle at 10% 100%, rgba(0, 77, 230, 0.85) 0%, rgba(7, 31, 94, 0.95) 45%, transparent 60%);
+}
+
+.client-badge {
+  position: absolute;
+  top: 24px;
+  left: -22px;
+  z-index: 5;
+  background: #002f8a;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 47, 138, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.client-badge .badge-tag {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #93c5fd;
+  line-height: 1.2;
+}
+
+.client-badge .badge-name {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 750;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 3px 0 1px;
+}
+
+.client-badge .badge-role {
+  display: block;
+  font-size: 11px;
+  color: #bfdbfe;
+  line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+  .cotech-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .cotech-hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+  .cotech-stat-item:nth-child(3) {
+    border-left: none;
+    padding-left: 0;
+  }
+  .cotech-photo-container {
+    max-width: 100%;
+    height: 400px;
+  }
+  .client-badge {
+    left: 12px;
+    top: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cotech-hero {
+    padding: 35px 0 50px;
+  }
+  .cotech-hero-title {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+  .cotech-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .cotech-btn-cyan,
+  .cotech-btn-outline-blue {
+    width: 100%;
+    text-align: center;
+  }
+  .cotech-hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 12px;
+  }
+  .cotech-stat-item:not(.first) {
+    padding-left: 12px;
+  }
+  .cotech-photo-container {
+    height: 320px;
+    border-radius: 20px 20px 20px 70px;
+  }
 }
 
 .future-hero {
@@ -860,22 +1119,108 @@
 
 .about-visual {
   position: relative;
-  padding: 0 24px 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
 }
 
 .about-visual::before {
-  content: '';
-  position: absolute;
-  inset: 22px 4px -6px 22px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, rgba(25, 8, 100, 0.05) 0%, rgba(238, 0, 59, 0.08) 100%);
-  border: 1px solid rgba(25, 8, 100, 0.06);
-  z-index: 0;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
 }
 
-.about-visual:hover::before {
-  transform: translate(6px, 6px);
+.about-consultant-frame {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  max-width: 100%;
+}
+
+.about-consultant-frame .cbr-avatar-bg-circle {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  right: -24px;
+  bottom: 12px;
+  border-radius: 50%;
+  background: #0047cc;
+  z-index: 1;
+}
+
+.about-consultant-frame .cbr-avatar-mask {
+  width: 330px;
+  height: 330px;
+  margin: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  box-shadow: 0 18px 42px rgba(0, 43, 73, 0.16);
+  z-index: 2;
+}
+
+.about-consultant-frame .cbr-avatar-mask img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+}
+
+.about-consultant-frame .cbr-consultant-badges {
+  position: absolute;
+  bottom: 42px;
+  left: -15px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.about-consultant-frame .cbr-badge-pill-name {
+  background: #061d3f;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  box-shadow: 0 6px 18px rgba(5, 20, 50, 0.35);
+  white-space: nowrap;
+}
+
+.about-consultant-frame .cbr-badge-pill-role {
+  background: #0047cc;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 6px 18px rgba(0, 71, 204, 0.35);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.about-consultant-frame .cbr-badge-pill-role .role-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.about-consultant-frame .cbr-badge-pill-role .role-crc {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 .about-image {
@@ -1786,61 +2131,397 @@
   pointer-events: none
 }
 
-.public-site .footer {
-  background: #10072c;
-  color: #9e94b5;
-  padding: 65px 0 24px;
-  font-size: 12px
+/* =========================================================
+   COTECH FOOTER — Réplica e Adaptação Exata do Layout do Print
+   ========================================================= */
+.cotech-footer {
+  background: #00266e;
+  color: #94a3b8;
+  padding: 60px 0 40px;
+  font-size: 13.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  line-height: 1.6;
 }
 
-.public-site .footer-grid {
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 80px
+.cotech-footer-grid {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr 1.05fr 1fr;
+  gap: 46px;
+  align-items: start;
 }
 
-.footer-wordmark {
-  font-size: 37px;
-  font-weight: 800;
-  letter-spacing: -2px;
-  color: white;
-  line-height: 1
+/* Coluna 1 - Brand & Social */
+.cotech-footer-brand-col {
+  display: flex;
+  flex-direction: column;
 }
 
-.footer-wordmark span {
-  color: var(--accent);
-  margin-left: 6px
-}
-
-.footer-brand p {
-  max-width: 320px;
-  margin-top: 25px;
-  font-size: 12px
-}
-
-.footer-tagline {
-  font-size: 8px;
-  letter-spacing: 1.8px;
-  color: #d3c7e9
-}
-
-.public-site .footer h3 {
-  font-size: 13px;
-  margin-bottom: 22px
-}
-
-.public-site .footer a:not(.footer-wordmark) {
-  margin: 10px 0
-}
-
-.public-site .footer-bottom {
-  margin-top: 50px;
-  font-size: 10px;
+.cotech-brand-hero {
+  display: flex;
   align-items: center;
-  border-color: #ffffff13
+  gap: 22px;
 }
 
-.public-site .footer-bottom a {
-  display: inline-block
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cotech-wordmark {
+  font-size: 33px;
+  font-weight: 850;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.cyan-dot {
+  color: #00d4c8;
+}
+
+.cotech-since {
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.cotech-brand-slogan {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 450;
+}
+
+.cyan-word {
+  color: #00d4c8;
+  font-weight: 600;
+}
+
+.footer-col1-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 25px 0 24px;
+}
+
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.social-circle {
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.social-circle:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: #00d4c8;
+}
+
+.social-circle svg {
+  transition: fill 0.2s;
+}
+
+.social-circle:hover svg {
+  fill: #001f5c;
+}
+
+.footer-simple-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-simple-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 450;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+
+.footer-simple-links a:hover {
+  color: #00d4c8;
+  padding-left: 3px;
+}
+
+/* Colunas de navegação */
+.footer-col-title {
+  font-size: 13.5px;
+  letter-spacing: 0.6px;
+  font-weight: 750;
+  color: #00d4c8;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-list li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 450;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+
+.footer-links-list li a:hover {
+  color: #00d4c8;
+  padding-left: 3px;
+}
+
+/* Coluna de Selos Exatos */
+.footer-seals-column {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Selo RA1000 */
+.ra1000-seal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.ra1000-ribbon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.ra1000-text-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.ra1000-cert {
+  font-size: 8px;
+  font-weight: 700;
+  color: #cbd5e1;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.ra1000-badge {
+  font-size: 21px;
+  font-weight: 900;
+  color: #4ade80;
+  letter-spacing: -0.5px;
+  margin: 1px 0;
+}
+
+.ra1000-reclame {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ra1000-aqui {
+  color: #00d4c8;
+  margin-left: 2px;
+}
+
+/* Selo Cultura Ética / Ouvidor Digital */
+.etica-seal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 104px;
+}
+
+.etica-shield-outer {
+  width: 102px;
+  height: 118px;
+  background: #0052cc;
+  border: 2px solid #ffffff;
+  border-radius: 12px 12px 50px 50px;
+  padding: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etica-shield-inner {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 8px 8px 44px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px 10px;
+  text-align: center;
+}
+
+.etica-line-1,
+.etica-line-2 {
+  font-size: 6.8px;
+  color: #00266e;
+  line-height: 1.15;
+  font-weight: 700;
+  display: block;
+}
+
+.etica-tag {
+  background: #0052cc;
+  color: #ffffff;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin: 3px 0;
+  letter-spacing: 0.2px;
+}
+
+.etica-line-3 {
+  font-size: 6.5px;
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.etica-check-icon {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #0052cc;
+  color: #ffffff;
+  font-size: 8px;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.etica-caption {
+  display: block;
+  font-size: 9px;
+  color: #cbd5e1;
+  line-height: 1.3;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Divisória horizontal */
+.footer-h-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 48px 0 34px;
+}
+
+/* Bloco Institucional e Endereços */
+.cotech-footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.footer-summary-text {
+  max-width: 1020px;
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 12.5px;
+}
+
+.footer-company-name {
+  font-size: 14.5px;
+  font-weight: 750;
+  color: #ffffff;
+  margin: 2px 0 0;
+  letter-spacing: -0.2px;
+}
+
+.footer-addresses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.footer-address-block strong {
+  display: block;
+  color: #e2e8f0;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  margin-bottom: 2px;
+}
+
+.footer-address-block span {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.footer-crc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #64748b;
+  font-size: 11.5px;
+  margin-top: 4px;
+}
+
+@media (max-width: 992px) {
+  .cotech-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+  .cotech-footer-brand-col {
+    grid-column: 1 / -1;
+  }
+  .footer-addresses-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cotech-footer {
+    padding: 45px 0 25px;
+  }
+  .cotech-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .cotech-brand-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .brand-text-block {
+    align-items: flex-start;
+  }
 }
 
 .public-site .contact-float {
@@ -2483,8 +3164,45 @@
   .about-visual {
     max-width: 480px;
     width: 100%;
-    padding-right: 15px;
-    margin: 0 auto
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+
+  .about-consultant-frame {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .about-consultant-frame .cbr-avatar-mask {
+    width: 290px;
+    height: 290px;
+  }
+
+  .about-consultant-frame .cbr-avatar-bg-circle {
+    width: 250px;
+    height: 250px;
+    right: -10px;
+    bottom: 8px;
+  }
+
+  .about-consultant-frame .cbr-consultant-badges {
+    bottom: 25px;
+    left: -8px;
+  }
+
+  .about-consultant-frame .cbr-badge-pill-name {
+    font-size: 13.5px;
+    padding: 7px 18px;
+  }
+
+  .about-consultant-frame .cbr-badge-pill-role {
+    padding: 7px 18px;
+  }
+
+  .about-consultant-frame .cbr-badge-pill-role .role-title,
+  .about-consultant-frame .cbr-badge-pill-role .role-crc {
+    font-size: 11px;
   }
 
   .about-image {
@@ -5461,30 +6179,32 @@
 
 .cbr-consultant-frame {
   position: relative;
-  width: 320px;
+  width: 350px;
+  height: 350px;
   max-width: 100%;
-}
-
-.cbr-avatar-mask {
-  width: 290px;
-  height: 380px;
-  margin: 0 auto;
-  border-radius: 145px;
-  overflow: hidden;
-  position: relative;
-  background: #002b49;
-  box-shadow: 0 16px 36px rgba(0, 43, 73, 0.15);
 }
 
 .cbr-avatar-bg-circle {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+  width: 280px;
+  height: 280px;
+  right: -18px;
+  bottom: 12px;
   border-radius: 50%;
-  background: #004488;
+  background: #0047cc;
   z-index: 1;
+}
+
+.cbr-avatar-mask {
+  width: 320px;
+  height: 320px;
+  margin: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #f1f5f9;
+  box-shadow: 0 16px 36px rgba(0, 43, 73, 0.16);
+  z-index: 2;
 }
 
 .cbr-avatar-mask img {
@@ -5493,45 +6213,63 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-}
-
-.cbr-consultant-badge {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #002b49;
-  color: #ffffff;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  z-index: 3;
-  width: 230px;
-  box-sizing: border-box;
-}
-
-.cbr-consultant-badge strong {
+  object-position: center 10%;
   display: block;
-  font-size: 13.5px;
+}
+
+/* PILL BADGES IN THE BOTTOM-LEFT CORNER (PRINT 1 REPLICA) */
+.cbr-consultant-badges {
+  position: absolute;
+  bottom: 42px;
+  left: -15px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.cbr-badge-pill-name {
+  background: #061d3f;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  box-shadow: 0 6px 18px rgba(5, 20, 50, 0.35);
+  white-space: nowrap;
+}
+
+.cbr-badge-pill-role {
+  background: #0047cc;
+  color: #ffffff;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 6px 18px rgba(0, 71, 204, 0.35);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.cbr-badge-pill-role .role-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.95;
+  white-space: nowrap;
+}
+
+.cbr-badge-pill-role .role-crc {
+  font-size: 11.5px;
   font-weight: 700;
   color: #ffffff;
-}
-
-.cbr-consultant-badge span {
-  display: block;
-  font-size: 11.5px;
-  color: #94a3b8;
-  margin-top: 2px;
-}
-
-.cbr-consultant-badge small {
-  display: block;
-  font-size: 10.5px;
-  color: #00d9e1;
-  margin-top: 2px;
-  font-weight: 600;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 /* FORM COLUMN */
@@ -5956,11 +6694,34 @@
     gap: 36px;
   }
   .cbr-consultant-frame {
-    width: 260px;
+    width: 290px;
+    height: 290px;
+    margin: 0 auto;
   }
   .cbr-avatar-mask {
-    width: 240px;
-    height: 320px;
+    width: 270px;
+    height: 270px;
+  }
+  .cbr-avatar-bg-circle {
+    width: 230px;
+    height: 230px;
+    right: -10px;
+    bottom: 5px;
+  }
+  .cbr-consultant-badges {
+    bottom: 20px;
+    left: -5px;
+  }
+  .cbr-badge-pill-name {
+    font-size: 13px;
+    padding: 7px 18px;
+  }
+  .cbr-badge-pill-role {
+    padding: 7px 18px;
+  }
+  .cbr-badge-pill-role .role-title,
+  .cbr-badge-pill-role .role-crc {
+    font-size: 11px;
   }
   .cbr-cards-grid {
     grid-template-columns: repeat(2, 1fr);

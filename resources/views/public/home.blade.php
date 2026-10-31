@@ -7,8 +7,8 @@
         <div class="future-copy">
             <span class="overline"><span class="live-dot"></span> CONHECIMENTO QUE TRANSFORMA NEGÓCIOS</span>
             <h1>@if(empty($company['hero_title']) || $company['hero_title'] === 'O próximo passo do seu negócio começa aqui.')O futuro do<br>seu negócio<br><em>começa agora.</em>@else{{ $company['hero_title'] }}@endif</h1>
-            <p>{{ $company['hero_text'] ?? 'Contabilidade, estratégia e consultoria para transformar os desafios de hoje nas conquistas de amanhã.' }}</p>
-            <div class="actions"><a class="button" href="/orcamento">Vamos construir juntos <span>↗</span></a><a class="hero-discover" href="#solucoes"><span class="play-icon">↓</span> Explore nossas soluções</a></div>
+            <p>{{ $company['hero_text'] ?? 'Transformamos números em direção. Contabilidade e consultoria próximas de você, com foco no que o seu negócio precisa para avançar.' }}</p>
+            <div class="actions"><a class="button" href="/orcamento">Vamos construir juntos <span>↗</span></a><a class="hero-discover" href="#facilidade"><span class="play-icon">↓</span> Explore nossas soluções</a></div>
             <div class="hero-signature"><span class="signature-line"></span><span>O futuro em suas mãos.<br><strong>A Cotech ao seu lado.</strong></span></div>
         </div>
         <div class="future-art" aria-label="Contabilidade, estratégia e gestão conectadas ao seu negócio">
@@ -20,14 +20,74 @@
             <span class="art-caption">CONECTAMOS O PRESENTE AO SEU PRÓXIMO PASSO</span>
         </div>
     </div>
-    <div class="container hero-bottom"><span>CONTABILIDADE COM VISÃO DE FUTURO</span><a href="#solucoes">Continue explorando <span>↓</span></a></div>
+    <div class="container hero-bottom"><span>CONTABILIDADE COM VISÃO DE FUTURO</span><a href="#facilidade">Continue explorando <span>↓</span></a></div>
+</section>
+
+<section class="cotech-hero" id="facilidade">
+    <div class="container cotech-hero-grid">
+        <div class="cotech-hero-copy">
+            <h2 class="cotech-hero-title">
+                Cuidar de <span class="highlight-blue">notas fiscais</span> e <span class="highlight-blue">impostos</span> nunca foi tão fácil.
+            </h2>
+            <p class="cotech-hero-subtitle">
+                Abertura de CNPJ grátis e plataforma disponível 24h, com planos a partir de R$ 195/mês.
+            </p>
+            <div class="cotech-hero-actions">
+                <a class="cotech-btn-cyan" href="/calculadora-de-custo-para-tirar-cnpj">Abrir CNPJ grátis</a>
+                <a class="cotech-btn-outline-blue" href="{{ \App\Support\Company::whatsapp() ?: '/orcamento' }}" target="_blank" rel="noopener">Tirar dúvidas com contador</a>
+            </div>
+            <div class="cotech-hero-stats">
+                <div class="cotech-stat-item first">
+                    <strong class="stat-number">+100 mil</strong>
+                    <span class="stat-desc">clientes em todo o Brasil</span>
+                </div>
+                <div class="cotech-stat-item">
+                    <strong class="stat-number">Campeã</strong>
+                    <span class="stat-desc">do prêmio Reclame Aqui 2025</span>
+                </div>
+                <div class="cotech-stat-item">
+                    <strong class="stat-number">Nº 1</strong>
+                    <span class="stat-desc">em abertura de empresas no país</span>
+                </div>
+                <div class="cotech-stat-item">
+                    <strong class="stat-number">+12 anos</strong>
+                    <span class="stat-desc">de experiência em contabilidade</span>
+                </div>
+            </div>
+        </div>
+        <div class="cotech-hero-visual">
+            <div class="client-badge" data-reveal>
+                <span class="badge-tag">Especialistas Cotech</span>
+                <strong class="badge-name">Fernando Kiosa &amp; Francisco Calombe</strong>
+                <span class="badge-role">Sócios Fundadores</span>
+            </div>
+            <div class="cotech-photo-container" data-reveal>
+                <img src="/images/hero-cotech-team.png" alt="Sócios Fundadores da Cotech — Fernando Kiosa e Francisco Calombe" width="620" height="520" class="cotech-hero-img" loading="lazy">
+                <div class="cotech-photo-wave" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="section solutions-section" id="solucoes"><div class="container">
     <div class="section-head" data-reveal><div><span class="eyebrow">01 / SOLUÇÕES QUE MOVEM</span><h2>Você cuida da visão.<br><span class="ink-blue">Nós ajudamos no caminho.</span></h2></div><div class="section-aside"><p>O apoio certo para cada momento do seu negócio. Conheça o que podemos construir juntos.</p><a class="text-link" href="/servicos">Explorar todos os serviços <span>↗</span></a></div></div>
     <div class="solution-grid">@forelse($services as $service)<a class="solution-card" href="/servicos/{{ $service->slug }}" data-reveal><div class="solution-top"><span class="solution-icon" aria-hidden="true">@if($loop->index % 3 === 0)▥@elseif($loop->index % 3 === 1)↗@else◎@endif</span><span class="solution-number">{{ str_pad($loop->iteration,2,'0',STR_PAD_LEFT) }}</span></div><h3>{{ $service->title }}</h3><p>{{ $service->summary }}</p><div class="solution-link">Descubra as possibilidades <span>↗</span></div></a>@empty<div class="empty">Conte o que precisa. Nossa equipe ajuda a encontrar a solução.</div>@endforelse</div>
 </div></section>
 <section class="section about-section" id="sobre"><div class="container about-grid">
-    <div class="about-visual" data-reveal><div class="about-image"><img src="/images/fernando.png" alt="Fernando Kiosa, CEO da Cotech" loading="lazy" width="600" height="650"><div class="photo-caption"><span>UMA VISÃO. MUITAS POSSIBILIDADES.</span><strong>O próximo capítulo<br>é construído juntos.</strong></div></div><div class="about-stamp" aria-label="Cotech — Sempre em frente"><span>COTECH</span><strong>↗</strong><span>SEMPRE EM FRENTE</span></div></div>
+    <div class="about-visual" data-reveal>
+        <div class="cbr-consultant-frame about-consultant-frame">
+            <div class="cbr-avatar-bg-circle" aria-hidden="true"></div>
+            <div class="cbr-avatar-mask">
+                <img src="/images/cotech-socios.png" alt="Francisco Calombe - Contador Consultor Cotech" loading="lazy" width="360" height="360">
+            </div>
+            <div class="cbr-consultant-badges">
+                <div class="cbr-badge-pill-name">Francisco Calombe</div>
+                <div class="cbr-badge-pill-role">
+                    <span class="role-title">Contador Consultor</span>
+                    <span class="role-crc">CRC/SP 305427/O-2</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="about-copy" data-reveal><span class="eyebrow">02 / PROXIMIDADE QUE FAZ A DIFERENÇA</span><h2>Mais que uma empresa.<br><span class="ink-blue">Uma parceria de verdade.</span></h2><p>Acreditamos que por trás de cada número existe uma história, uma decisão e um futuro para construir.</p><p class="muted">Por isso, unimos conhecimento e proximidade para entender o seu momento, organizar suas prioridades e transformar planos em próximos passos.</p><div class="about-values"><div class="value-line"><span>01</span><div><h3>Escuta antes da solução.</h3><p>Seu contexto é o nosso ponto de partida.</p></div></div><div class="value-line"><span>02</span><div><h3>Clareza em cada decisão.</h3><p>Informações que ajudam você a seguir em frente.</p></div></div></div><a class="button blue-button" href="/orcamento">Conheça a sua próxima parceria <span>↗</span></a></div>
 </div></section>
 <section class="section process-section"><div class="container"><div class="section-head" data-reveal><div><span class="eyebrow">03 / DO PRIMEIRO OLÁ AO PRÓXIMO PASSO</span><h2>Avançar pode ser<br>mais simples.</h2></div><p class="section-aside">Uma conversa abre o caminho.<br>Uma parceria ajuda a percorrê-lo.</p></div>
@@ -39,5 +99,4 @@
 @if($certifications->isNotEmpty())<section class="section"><div class="container"><h2>Certificações</h2><div class="grid">@foreach($certifications as $item)<div class="card" data-reveal><h3>{{ $item->title }}</h3><p>{{ $item->summary }}</p></div>@endforeach</div></div></section>@endif
 @if($banners->isNotEmpty())<section class="section"><div class="container grid">@foreach($banners as $item)<article class="card image-card" data-reveal>@if($item->image)<img loading="lazy" src="{{ $item->image }}" alt="{{ $item->title }}">@endif<div class="card-body"><h3>{{ $item->title }}</h3><p>{{ $item->summary }}</p><a class="text-link" href="/orcamento">Saiba mais ↗</a></div></article>@endforeach</div></section>@endif
 @if($faqs->isNotEmpty())<section class="section faq-section"><div class="container faq-grid"><div data-reveal><span class="eyebrow">VAMOS ESCLARECER?</span><h2>Boas perguntas.<br><span class="ink-blue">Caminhos mais claros.</span></h2><p class="muted">Ainda tem alguma dúvida?<br>A nossa equipe está aqui para conversar.</p><a class="text-link" href="/orcamento">Fale com a Cotech ↗</a></div><div class="faq-list" data-reveal>@foreach($faqs as $faq)<details name="cotech-faq"><summary><span class="faq-number">0{{ $loop->iteration }}</span>{{ $faq->title }}<span class="faq-toggle" aria-hidden="true">+</span></summary><p>{{ $faq->body }}</p></details>@endforeach</div></div></section>@endif
-<section class="final-cta"><div class="container" data-reveal><span class="overline">SEU FUTURO NÃO PRECISA ESPERAR.</span><h2>Vamos dar o<br><em>próximo passo?</em></h2><div class="cta-bottom"><p>Você traz os planos.<br>A gente ajuda a construir o caminho.</p><a class="button" href="/orcamento">Comece essa conversa <span>↗</span></a></div></div><div class="cta-orbit" aria-hidden="true"></div></section>
 @endsection

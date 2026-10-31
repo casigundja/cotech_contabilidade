@@ -25,17 +25,19 @@
 
         <!-- CALCULATOR TWO COLUMNS -->
         <div class="cbr-calc-wrapper">
-            <!-- LEFT: CONSULTANT WITH ARCH MASK AND BADGE -->
+            <!-- LEFT: CONSULTANT WITH DUAL-CIRCLE DESIGN AND PILL BADGES (PRINT 1 REPLICA WITH PRINT 3 IMAGE) -->
             <div class="cbr-consultant-col">
                 <div class="cbr-consultant-frame">
+                    <div class="cbr-avatar-bg-circle" aria-hidden="true"></div>
                     <div class="cbr-avatar-mask">
-                        <div class="cbr-avatar-bg-circle"></div>
-                        <img src="/images/francisco-calombe.jpg" alt="Francisco Calombe - Contador Consultor Cotech" width="290" height="380">
+                        <img src="/images/cotech-socios.png" alt="Francisco Calombe - Contador Consultor Cotech" width="320" height="320">
                     </div>
-                    <div class="cbr-consultant-badge">
-                        <strong>Francisco Calombe</strong>
-                        <span>Contador Consultor</span>
-                        <small>CRC/SP 305427/O-2</small>
+                    <div class="cbr-consultant-badges">
+                        <div class="cbr-badge-pill-name">Francisco Calombe</div>
+                        <div class="cbr-badge-pill-role">
+                            <span class="role-title">Contador Consultor</span>
+                            <span class="role-crc">CRC/SP 305427/O-2</span>
+                        </div>
                     </div>
                 </div>
             </div>
