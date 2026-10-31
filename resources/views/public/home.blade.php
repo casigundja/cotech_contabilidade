@@ -55,15 +55,9 @@
                 </div>
             </div>
         </div>
-        <div class="cotech-hero-visual">
-            <div class="client-badge" data-reveal>
-                <span class="badge-tag">Especialistas Cotech</span>
-                <strong class="badge-name">Fernando Kiosa &amp; Francisco Calombe</strong>
-                <span class="badge-role">Sócios Fundadores</span>
-            </div>
-            <div class="cotech-photo-container" data-reveal>
-                <img src="/images/hero-cotech-team.png" alt="Sócios Fundadores da Cotech — Fernando Kiosa e Francisco Calombe" width="620" height="520" class="cotech-hero-img" loading="lazy">
-                <div class="cotech-photo-wave" aria-hidden="true"></div>
+        <div class="cotech-hero-visual" data-reveal>
+            <div class="cotech-photo-container">
+                <img src="/images/hero-cotech-team.png" alt="Sócios Fundadores da Cotech — Fernando Kiosa e Francisco Calombe" width="577" height="490" class="cotech-hero-img" loading="lazy">
             </div>
         </div>
     </div>

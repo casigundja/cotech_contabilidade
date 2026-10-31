@@ -39,6 +39,7 @@ import {
     stamp,
     leadTable,
     contentForm,
+    authLoginPage,
 } from "./views.js";
 import {
     abrirCnpjTemplate,
@@ -532,14 +533,7 @@ app.post("/orcamento", async (c) => {
 app.get("/login", (c) =>
     c.get("user")
         ? c.redirect("/admin")
-        : c.html(
-              layout(
-                  c,
-                  "Entrar",
-                  pageHead("Área da equipe") +
-                      `<section class="section"><div class="container" style="max-width:560px">${form(c, "/login", `${input("email", "E-mail", "", "email", 'required autocomplete="username"')}${input("password", "Senha", "", "password", 'required autocomplete="current-password"')}<button>Entrar</button><p><a href="/forgot-password">Esqueci minha senha</a></p>`, "POST", 'class="card"')}</div></section>`,
-              ),
-          ),
+        : c.html(authLoginPage(c)),
 );
 app.post("/login", async (c) => {
     const sql = db(c),
@@ -555,7 +549,8 @@ app.post("/login", async (c) => {
         user?.password ||
             "pbkdf2$100000$" + "0".repeat(64) + "$" + "0".repeat(64),
     );
-    if (!valid) fail(422, "E-mail ou senha incorretos.");
+    if (!valid)
+        return c.html(authLoginPage(c, "E-mail ou senha incorretos."), 422);
     await sql`DELETE FROM cotech.worker_sessions WHERE id=${c.get("session").id}`;
     await newSession(c, user.id);
     c.set("user", user);
