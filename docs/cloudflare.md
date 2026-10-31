@@ -46,7 +46,7 @@ O template da página inicial preserva o layout Laravel com regiões dinâmicas.
 
 ## Reversão e backup
 
-Versão convertida publicada e verificada: `fbb6793a-7980-44a6-8fbf-30a010b416aa`.
+Versão convertida publicada e verificada: `57c3d9c7-14b9-446f-9caf-8f445e67a7e8`.
 
 Validações concluídas: integração local completa (`tests/worker-check.mjs`), navegador em desktop/celular e login na prévia (`tests/worker-browser.mjs`), cinco anexos simultâneos de 5 MB persistidos e removidos na prévia (`tests/worker-upload-preview.mjs`) e verificação do site, login/logout e painel no endereço final (`tests/worker-live-smoke.mjs`). O envio de e-mails ainda exige configurar `MAILER` e `MAIL_FROM`.
 
