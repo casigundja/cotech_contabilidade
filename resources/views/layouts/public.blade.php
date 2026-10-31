@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#190864">
 <title>@yield('title', 'Cotech — O futuro em suas mãos')</title>
 <meta name="description" content="@yield('description', 'Contabilidade, consultoria e soluções para o crescimento do seu negócio. Conheça a Cotech e solicite uma proposta.')">
-<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/public.css?v=6"><script src="/js/site.js?v=2" defer></script>
+<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/public.css?v=7"><script src="/js/site.js?v=7" defer></script>
 </head>
 <body class="public-site">
 <a class="skip" href="#main">Ir para o conteúdo</a><div class="scroll-progress" aria-hidden="true"></div>

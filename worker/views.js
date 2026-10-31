@@ -82,7 +82,7 @@ export function layout(
             "Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.",
     };
     const notice = notices[c.req.query("ok")];
-    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=3">'}<script src="/js/site.js?v=3" defer></script></head>`;
+    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=7">'}<script src="/js/site.js?v=7" defer></script></head>`;
     const feedback = notice
         ? `<div class="card" role="status">${esc(notice)}</div>`
         : "";
