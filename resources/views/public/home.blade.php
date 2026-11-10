@@ -6,8 +6,8 @@
     <div class="container future-grid">
         <div class="future-copy">
             <span class="overline"><span class="live-dot"></span> CONHECIMENTO QUE TRANSFORMA NEGÓCIOS</span>
-            <h1>@if(empty($company['hero_title']) || $company['hero_title'] === 'O próximo passo do seu negócio começa aqui.' || $company['hero_title'] === 'Cotech Contabilidade')O futuro do<br>seu negócio<br><em>começa agora.</em>@else{{ $company['hero_title'] }}@endif</h1>
-            <p>{{ $company['hero_text'] ?? 'Transformamos números em direção. Contabilidade e consultoria próximas de você, com foco no que o seu negócio precisa para avançar.' }}</p>
+            <h1>Cotech<br>Contabilidade</h1>
+            <p>Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.</p>
             <div class="actions"><a class="button" href="/orcamento">Vamos construir juntos <span>↗</span></a><a class="hero-discover" href="#facilidade"><span class="play-icon">↓</span> Explore nossas soluções</a></div>
             <div class="hero-signature"><span class="signature-line"></span><span>O futuro em suas mãos.<br><strong>A Cotech ao seu lado.</strong></span></div>
         </div>

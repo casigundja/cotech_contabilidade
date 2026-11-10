@@ -142,14 +142,9 @@ export function home(c, items) {
     const by = (type) => items.filter((x) => x.type === type);
     const title = company.hero_title;
     const slots = {
-        HERO_TITLE:
-            !title || title === "O próximo passo do seu negócio começa aqui." || title === "O futuro do seu negócio começa agora." || title.includes("Cotech")
-                ? 'Cotech<br><span class="highlight-cyan">Contabilidade</span>'
-                : esc(title),
+        HERO_TITLE: "Cotech<br>Contabilidade",
         HERO_TEXT:
-            !company.hero_text || company.hero_text.includes("Transformamos números em direção") || company.hero_text.includes("Conhecimento, proximidade")
-                ? "Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil."
-                : esc(company.hero_text),
+            "Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.",
         SERVICES: serviceCards(by("service")),
         POSTS: postCards(
             by("post")
