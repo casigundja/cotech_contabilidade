@@ -548,6 +548,222 @@
   }
 }
 
+/* =========================================================
+   COTECH CORPORATE HERO (PRINT 1 STYLE)
+   ========================================================= */
+.cotech-blb-hero {
+  position: relative;
+  background: #1e3247 url('/images/hero-cotech-clean-2k.jpg') no-repeat center right;
+  background-size: cover;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+  border-bottom: 1px solid #142230;
+}
+
+.cotech-blb-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+}
+
+.cotech-blb-topbar a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.cotech-blb-topbar a:hover {
+  color: #00e5db;
+}
+
+.cotech-blb-topbar strong {
+  color: #4ba3e3;
+}
+
+.cotech-blb-content {
+  position: relative;
+  z-index: 2;
+  max-width: 530px;
+  padding: 60px 0 50px 0;
+}
+
+.cotech-blb-title {
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 850;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.cotech-blb-title .highlight-cyan {
+  color: #00e5db;
+}
+
+.cotech-blb-desc {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #d1dbe5;
+  max-width: 470px;
+  margin: 0 0 28px;
+  font-weight: 450;
+}
+
+.cotech-blb-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.cotech-blb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #00e5db;
+  color: #022235;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 229, 219, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cotech-blb-btn-primary:hover {
+  background: #00d2c9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 229, 219, 0.5);
+  color: #01141f;
+}
+
+.cotech-blb-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-weight: 650;
+  font-size: 14px;
+  padding: 11.5px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cotech-blb-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.cotech-blb-pillars {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+}
+
+.cotech-pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.cotech-pillar-item .pillar-brand {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.cotech-pillar-item .pillar-brand .pillar-dot {
+  color: #00e5db;
+  font-size: 18px;
+  line-height: 0;
+  margin-left: 1px;
+}
+
+.cotech-pillar-item .pillar-text {
+  font-size: 9.5px;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #a3b8cc;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 991px) {
+  .cotech-blb-hero {
+    background-position: 75% center;
+    min-height: auto;
+    padding: 50px 0 40px;
+  }
+  .cotech-blb-topbar {
+    position: static;
+    margin-bottom: 12px;
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .cotech-blb-content {
+    padding: 0;
+    max-width: 100%;
+    background: linear-gradient(180deg, rgba(24, 40, 58, 0.88) 0%, rgba(20, 34, 50, 0.96) 100%);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .cotech-blb-pillars {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .cotech-blb-title {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  .cotech-blb-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cotech-blb-btn-primary,
+  .cotech-blb-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .future-hero {
   background: #0b0726;
   color: white;

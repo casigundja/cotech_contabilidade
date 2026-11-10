@@ -3,6 +3,8 @@ import { load } from "cheerio";
 const $ = load(
     fs.readFileSync("storage/app/private/deploy/home-source.html", "utf8"),
 );
+$(".cotech-blb-title").html("@@HERO_TITLE@@");
+$(".cotech-blb-desc").html("@@HERO_TEXT@@");
 $(".future-copy h1").html("@@HERO_TITLE@@");
 $(".future-copy > p").html("@@HERO_TEXT@@");
 $(".solution-grid").html("@@SERVICES@@");

@@ -82,7 +82,7 @@ export function layout(
             "Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.",
     };
     const notice = notices[c.req.query("ok")];
-    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=10">'}<script src="/js/site.js?v=10" defer></script></head>`;
+    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=12">'}<script src="/js/site.js?v=12" defer></script></head>`;
     const feedback = notice
         ? `<div class="card" role="status">${esc(notice)}</div>`
         : "";
@@ -143,10 +143,13 @@ export function home(c, items) {
     const title = company.hero_title;
     const slots = {
         HERO_TITLE:
-            !title || title === "O próximo passo do seu negócio começa aqui."
-                ? "O futuro do<br>seu negócio<br><em>começa agora.</em>"
+            !title || title === "O próximo passo do seu negócio começa aqui." || title === "O futuro do seu negócio começa agora." || title.includes("Cotech")
+                ? 'Cotech<br><span class="highlight-cyan">Contabilidade</span>'
                 : esc(title),
-        HERO_TEXT: esc(company.hero_text),
+        HERO_TEXT:
+            !company.hero_text || company.hero_text.includes("Transformamos números em direção") || company.hero_text.includes("Conhecimento, proximidade")
+                ? "Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil."
+                : esc(company.hero_text),
         SERVICES: serviceCards(by("service")),
         POSTS: postCards(
             by("post")
