@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#190864">
 <title>@yield('title', 'Cotech — O futuro em suas mãos')</title>
 <meta name="description" content="@yield('description', 'Contabilidade, consultoria e soluções para o crescimento do seu negócio. Conheça a Cotech e solicite uma proposta.')">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=16"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=16"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=16"><link rel="shortcut icon" href="/favicon.ico?v=16"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/public.css?v=16"><script src="/js/site.js?v=16" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=18"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=18"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=18"><link rel="shortcut icon" href="/favicon.ico?v=18"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/public.css?v=18"><script src="/js/site.js?v=18" defer></script>
 </head>
 <body class="public-site">
 <a class="skip" href="#main">Ir para o conteúdo</a><div class="scroll-progress" aria-hidden="true"></div>
