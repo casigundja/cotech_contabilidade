@@ -1063,8 +1063,8 @@
 }
 
 .brand-planet {
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
   display: grid;
   place-items: center;
   border: 2px solid rgba(255, 255, 255, 0.25);
@@ -1078,8 +1078,8 @@
 }
 
 .brand-planet img {
-  width: 100%;
-  height: 100%;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -4853,6 +4853,18 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@media (min-width: 992px) {
+  .header-mega-menu.wide-menu {
+    min-width: 580px;
+    padding: 20px 24px;
+  }
+  .header-mega-menu.wide-menu .mega-menu-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 28px;
+  }
 }
 
 .mega-group {
