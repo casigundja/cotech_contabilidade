@@ -82,7 +82,7 @@ export function layout(
             "Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.",
     };
     const notice = notices[c.req.query("ok")];
-    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=15"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=15"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=15"><link rel="shortcut icon" href="/favicon.ico?v=15"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=15">'}<script src="/js/site.js?v=15" defer></script></head>`;
+    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=16"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=16"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=16"><link rel="shortcut icon" href="/favicon.ico?v=16"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=16">'}<script src="/js/site.js?v=16" defer></script></head>`;
     const feedback = notice
         ? `<div class="card" role="status">${esc(notice)}</div>`
         : "";
@@ -142,9 +142,9 @@ export function home(c, items) {
     const by = (type) => items.filter((x) => x.type === type);
     const title = company.hero_title;
     const slots = {
-        HERO_TITLE: "Cotech<br>Contabilidade",
+        HERO_TITLE: 'Cotech<br><span class="highlight-cyan">Contabilidade</span>',
         HERO_TEXT:
-            "Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.",
+            "Artigos exclusivos sobre Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.",
         SERVICES: serviceCards(by("service")),
         POSTS: postCards(
             by("post")

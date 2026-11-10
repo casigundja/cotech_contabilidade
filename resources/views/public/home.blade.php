@@ -1,26 +1,38 @@
 @extends('layouts.public')
 @php($company = \App\Support\Company::all())
 @section('content')
-<section class="future-hero">
-    <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
-    <div class="container future-grid">
-        <div class="future-copy">
-            <span class="overline"><span class="live-dot"></span> CONHECIMENTO QUE TRANSFORMA NEGÓCIOS</span>
-            <h1>Cotech<br>Contabilidade</h1>
-            <p>Artigos exclusivos e soluções completas em Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.</p>
-            <div class="actions"><a class="button" href="/orcamento">Vamos construir juntos <span>↗</span></a><a class="hero-discover" href="#facilidade"><span class="play-icon">↓</span> Explore nossas soluções</a></div>
-            <div class="hero-signature"><span class="signature-line"></span><span>O futuro em suas mãos.<br><strong>A Cotech ao seu lado.</strong></span></div>
-        </div>
-        <div class="future-art" aria-label="Contabilidade, estratégia e gestão conectadas ao seu negócio">
-            <div class="art-grid" aria-hidden="true"></div><div class="orbit-ring ring-a" aria-hidden="true"></div><div class="orbit-ring ring-b" aria-hidden="true"></div>
-            <div class="brand-planet"><img src="/images/hero-cotech-character-circle.png" alt="Executivo Cotech — O futuro em suas mãos" width="260" height="260"></div>
-            <div class="floating-note note-one"><span class="note-icon">↗</span><div><small>MAIS DIREÇÃO</small><strong>Estratégia para crescer</strong></div></div>
-            <div class="floating-note note-two"><span class="note-icon">▥</span><div><small>MAIS CLAREZA</small><strong>Seus números fazem sentido.</strong><div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
-            <div class="floating-note note-three"><span class="status-dot"></span> Pessoas. Negócios. Possibilidades.</div>
-            <span class="art-caption">CONECTAMOS O PRESENTE AO SEU PRÓXIMO PASSO</span>
+<section class="cotech-blb-hero">
+    <div class="cotech-blb-topbar">
+        <a href="/orcamento">Saiba como <strong>PODEMOS AJUDAR SUA EMPRESA</strong> ↗</a>
+    </div>
+    <div class="container">
+        <div class="cotech-blb-content">
+            <h1 class="cotech-blb-title">
+                Cotech<br><span class="highlight-cyan">Contabilidade</span>
+            </h1>
+            <p class="cotech-blb-desc">
+                Artigos exclusivos sobre Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.
+            </p>
+            <div class="cotech-blb-actions">
+                <a class="cotech-blb-btn-primary" href="/orcamento">Vamos construir juntos ↗</a>
+                <a class="cotech-blb-btn-secondary" href="#facilidade">Explore nossas soluções ↓</a>
+            </div>
+            <div class="cotech-blb-pillars">
+                <div class="cotech-pillar-item">
+                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
+                    <span class="pillar-text">auditores e<br>consultores</span>
+                </div>
+                <div class="cotech-pillar-item">
+                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
+                    <span class="pillar-text">advisor<br>financeiro</span>
+                </div>
+                <div class="cotech-pillar-item">
+                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
+                    <span class="pillar-text">escola de<br>negócios</span>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="container hero-bottom"><span>CONTABILIDADE COM VISÃO DE FUTURO</span><a href="#facilidade">Continue explorando ↓</a></div>
 </section>
 
 <section class="cotech-hero" id="facilidade">
