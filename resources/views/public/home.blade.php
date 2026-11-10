@@ -1,34 +1,75 @@
 @extends('layouts.public')
 @php($company = \App\Support\Company::all())
 @section('content')
-<section class="cotech-blb-hero">
-    <div class="cotech-blb-topbar">
-        <a href="/orcamento">Saiba como <strong>PODEMOS AJUDAR SUA EMPRESA</strong> ↗</a>
-    </div>
-    <div class="container">
-        <div class="cotech-blb-content">
-            <h1 class="cotech-blb-title">
-                Cotech<br><span class="highlight-cyan">Contabilidade</span>
-            </h1>
-            <p class="cotech-blb-desc">
-                Artigos exclusivos sobre Contabilidade, Finanças, Tributário, Societário e mais temas que impactam negócios no Brasil.
-            </p>
-            <div class="cotech-blb-actions">
-                <a class="cotech-blb-btn-primary" href="/orcamento">Vamos construir juntos ↗</a>
-                <a class="cotech-blb-btn-secondary" href="#facilidade">Explore nossas soluções ↓</a>
+<section class="cotech-solucoes-hero">
+    <!-- Bottom left corner emblem -->
+    <svg class="solucoes-corner-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <path d="M0 0 H24 L14 14 H0 V0 Z" fill="white"/>
+        <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#38bdf8"/>
+    </svg>
+
+    <div class="cotech-solucoes-container">
+        <div class="solucoes-content">
+            <div class="solucoes-header-row">
+                <h1 class="solucoes-title">
+                    Soluções em<br>
+                    <span class="highlight-cyan">Contabilidade</span>
+                </h1>
+                <!-- Geometric emblem -->
+                <svg class="solucoes-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                    <path d="M0 0 H24 L14 14 H0 V0 Z" fill="white"/>
+                    <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#38bdf8"/>
+                </svg>
             </div>
-            <div class="cotech-blb-pillars">
-                <div class="cotech-pillar-item">
-                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
-                    <span class="pillar-text">auditores e<br>consultores</span>
+
+            <p class="solucoes-desc">
+                Mais organização para o seu negócio, com segurança, planejamento e suporte em todas as etapas.
+            </p>
+
+            <div class="solucoes-actions">
+                <a class="btn-solucoes-cyan" href="/orcamento">
+                    Fale com um especialista <span>/</span>
+                </a>
+                <a class="btn-solucoes-outline" href="/servicos">
+                    Conheça nossos serviços
+                </a>
+            </div>
+
+            <div class="solucoes-pillars">
+                <div class="solucoes-pillar-item">
+                    <!-- 3 bars icon -->
+                    <svg class="solucoes-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="12" width="4" height="9" rx="1"/>
+                        <rect x="10" y="7" width="4" height="14" rx="1"/>
+                        <rect x="17" y="3" width="4" height="18" rx="1"/>
+                    </svg>
+                    <span class="solucoes-pillar-text">Gestão<br>financeira</span>
                 </div>
-                <div class="cotech-pillar-item">
-                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
-                    <span class="pillar-text">advisor<br>financeiro</span>
+
+                <div class="solucoes-pillar-divider" aria-hidden="true"></div>
+
+                <div class="solucoes-pillar-item">
+                    <!-- Document icon -->
+                    <svg class="solucoes-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="8" y1="13" x2="16" y2="13"/>
+                        <line x1="8" y1="17" x2="16" y2="17"/>
+                    </svg>
+                    <span class="solucoes-pillar-text">Conformidade<br>fiscal</span>
                 </div>
-                <div class="cotech-pillar-item">
-                    <span class="pillar-brand">cotech<span class="pillar-dot">.</span></span>
-                    <span class="pillar-text">escola de<br>negócios</span>
+
+                <div class="solucoes-pillar-divider" aria-hidden="true"></div>
+
+                <div class="solucoes-pillar-item">
+                    <!-- Team / Growth icon -->
+                    <svg class="solucoes-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span class="solucoes-pillar-text">Apoio ao<br>crescimento</span>
                 </div>
             </div>
         </div>

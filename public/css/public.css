@@ -764,6 +764,201 @@
   }
 }
 
+/* =====================================================================
+   COTECH SOLUÇÕES EM CONTABILIDADE HERO (DESIGN PRINT)
+   ===================================================================== */
+.cotech-solucoes-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(500px, 45vw, 620px);
+  background-color: #0f2233;
+  background-image: url('/images/hero-solucoes-bg.jpg');
+  background-size: cover;
+  background-position: right center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.cotech-solucoes-container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.solucoes-content {
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.solucoes-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.solucoes-title {
+  font-size: clamp(36px, 3.8vw, 50px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.solucoes-title .highlight-cyan {
+  color: #00dfc4;
+  display: inline-block;
+}
+
+.solucoes-emblem {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+
+.solucoes-desc {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #cbd5e1;
+  font-weight: 400;
+  max-width: 420px;
+  margin: 0 0 28px 0;
+}
+
+.solucoes-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.btn-solucoes-cyan {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #00dfc4;
+  color: #081926;
+  font-size: 14px;
+  font-weight: 750;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(0, 223, 196, 0.35);
+}
+
+.btn-solucoes-cyan:hover {
+  background: #0df3d8;
+  color: #081926;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 223, 196, 0.5);
+}
+
+.btn-solucoes-outline {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s;
+}
+
+.btn-solucoes-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.solucoes-pillars {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.solucoes-pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.solucoes-pillar-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.solucoes-pillar-icon {
+  width: 24px;
+  height: 24px;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.solucoes-pillar-text {
+  font-size: 11.5px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.solucoes-corner-emblem {
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+  width: 34px;
+  height: 34px;
+  opacity: 0.95;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .cotech-solucoes-hero {
+    height: auto;
+    min-height: 520px;
+    padding: 40px 0;
+    background-position: 70% center;
+  }
+  .cotech-solucoes-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 34, 52, 0.92);
+    z-index: 1;
+  }
+  .cotech-solucoes-container {
+    padding: 0 20px;
+  }
+  .solucoes-pillars {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .solucoes-pillar-divider {
+    display: none;
+  }
+}
+
 .future-hero {
   background: #0b0726;
   color: white;
