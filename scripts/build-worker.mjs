@@ -14,6 +14,11 @@ for (const directory of ["css", "js", "images"])
     fs.cpSync(`public/${directory}`, `${output}/${directory}`, {
         recursive: true,
     });
+for (const file of fs.readdirSync("public")) {
+    if (file.startsWith("favicon") || file.startsWith("apple-touch-icon") || file === "robots.txt") {
+        fs.copyFileSync(path.join("public", file), path.join(output, file));
+    }
+}
 console.log(
     "Public CSS, JavaScript and images prepared. PHP, credentials and private uploads excluded.",
 );

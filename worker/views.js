@@ -82,7 +82,7 @@ export function layout(
             "Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.",
     };
     const notice = notices[c.req.query("ok")];
-    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=12">'}<script src="/js/site.js?v=12" defer></script></head>`;
+    const head = `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><title>${esc(title)} | Cotech</title><meta name="description" content="${esc(description)}">${admin || /login|password/.test(path) ? '<meta name="robots" content="noindex,nofollow">' : ""}<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=13"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=13"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=13"><link rel="shortcut icon" href="/favicon.ico?v=13"><link rel="stylesheet" href="/css/site.css">${admin ? "" : '<link rel="stylesheet" href="/css/public.css?v=13">'}<script src="/js/site.js?v=13" defer></script></head>`;
     const feedback = notice
         ? `<div class="card" role="status">${esc(notice)}</div>`
         : "";
@@ -113,7 +113,7 @@ export function layout(
 
 export function authLoginPage(c, error = "") {
     const company = c.get("company") || {};
-    const head = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><meta name="robots" content="noindex,nofollow"><title>Acesso da equipe | Cotech</title><link rel="icon" href="/images/logo.jpeg"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/auth.css"></head>`;
+    const head = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#190864"><meta name="robots" content="noindex,nofollow"><title>Acesso da equipe | Cotech</title><link rel="icon" type="image/svg+xml" href="/favicon.svg?v=13"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=13"><link rel="shortcut icon" href="/favicon.ico?v=13"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/auth.css"></head>`;
     const message = error
         ? `<div class="auth-message auth-message-error" role="alert">${esc(error)}</div>`
         : "";
