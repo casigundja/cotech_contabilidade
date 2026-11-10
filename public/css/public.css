@@ -1062,33 +1062,6 @@
   box-shadow: 0 0 15px #a5b4fc;
 }
 
-.hero-man-workspace {
-  position: relative;
-  z-index: 2;
-  width: 540px;
-  max-width: 100%;
-  height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.hero-man-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 50px rgba(99, 102, 241, 0.35));
-}
-
-.mouse-pointer-badge {
-  position: absolute;
-  bottom: -8px;
-  right: 18px;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
-  pointer-events: none;
-}
-
 .brand-planet {
   width: 250px;
   height: 250px;
@@ -1113,7 +1086,6 @@
 
 .floating-note {
   position: absolute;
-  z-index: 10;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
