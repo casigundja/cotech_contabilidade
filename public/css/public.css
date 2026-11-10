@@ -800,6 +800,26 @@
   justify-content: center;
 }
 
+.solucoes-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #00dfc4;
+  margin-bottom: 12px;
+}
+
+.brand-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00dfc4;
+  box-shadow: 0 0 8px rgba(0, 223, 196, 0.7);
+}
+
 .solucoes-header-row {
   display: flex;
   align-items: flex-start;
@@ -924,12 +944,18 @@
 
 .solucoes-corner-emblem {
   position: absolute;
-  bottom: 20px;
-  left: 28px;
-  width: 34px;
-  height: 34px;
-  opacity: 0.95;
+  bottom: 24px;
+  left: 40px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
   z-index: 3;
+}
+
+@media (max-width: 992px) {
+  .solucoes-corner-emblem {
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -943,11 +969,22 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(15, 34, 52, 0.92);
+    background: rgba(15, 34, 52, 0.94);
     z-index: 1;
   }
   .cotech-solucoes-container {
     padding: 0 20px;
+  }
+  .solucoes-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .btn-solucoes-cyan,
+  .btn-solucoes-outline {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
   .solucoes-pillars {
     flex-direction: column;

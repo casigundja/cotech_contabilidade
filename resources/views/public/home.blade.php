@@ -2,23 +2,27 @@
 @php($company = \App\Support\Company::all())
 @section('content')
 <section class="cotech-solucoes-hero">
-    <!-- Bottom left corner emblem -->
-    <svg class="solucoes-corner-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <path d="M0 0 H24 L14 14 H0 V0 Z" fill="white"/>
-        <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#38bdf8"/>
-    </svg>
-
     <div class="cotech-solucoes-container">
+        <!-- Corner emblem inside container, hidden on mobile/tablet via CSS -->
+        <svg class="solucoes-corner-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M0 0 H24 L14 14 H0 V0 Z" fill="white"/>
+            <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#00dfc4"/>
+        </svg>
+
         <div class="solucoes-content">
+            <div class="solucoes-brand-tag">
+                <span class="brand-tag-dot"></span> COTECH CONTABILIDADE
+            </div>
+
             <div class="solucoes-header-row">
                 <h1 class="solucoes-title">
                     Soluções em<br>
                     <span class="highlight-cyan">Contabilidade</span>
                 </h1>
-                <!-- Geometric emblem -->
+                <!-- Modern geometric emblem in Cotech palette -->
                 <svg class="solucoes-emblem" viewBox="0 0 36 36" fill="none" aria-hidden="true">
                     <path d="M0 0 H24 L14 14 H0 V0 Z" fill="white"/>
-                    <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#38bdf8"/>
+                    <path d="M14 14 L24 0 V24 H14 V14 Z" fill="#00dfc4"/>
                 </svg>
             </div>
 
@@ -27,8 +31,8 @@
             </p>
 
             <div class="solucoes-actions">
-                <a class="btn-solucoes-cyan" href="/orcamento">
-                    Fale com um especialista <span>/</span>
+                <a class="btn-solucoes-cyan" href="{{ \App\Support\Company::whatsapp() ?: '/orcamento' }}" target="_blank" rel="noopener">
+                    Fale com um especialista <span>↗</span>
                 </a>
                 <a class="btn-solucoes-outline" href="/servicos">
                     Conheça nossos serviços
@@ -79,6 +83,7 @@
 <section class="cotech-hero" id="facilidade">
     <div class="container cotech-hero-grid">
         <div class="cotech-hero-copy">
+            <span class="eyebrow" style="margin-bottom: 8px; display: inline-block;">PLANOS &amp; FACILIDADES</span>
             <h2 class="cotech-hero-title">
                 Cuidar de <span class="highlight-blue">notas fiscais</span> e <span class="highlight-blue">impostos</span> nunca foi tão fácil.
             </h2>
@@ -137,7 +142,7 @@
     </div>
     <div class="about-copy" data-reveal><span class="eyebrow">02 / PROXIMIDADE QUE FAZ A DIFERENÇA</span><h2>Mais que uma empresa.<br><span class="ink-blue">Uma parceria de verdade.</span></h2><p>Acreditamos que por trás de cada número existe uma história, uma decisão e um futuro para construir.</p><p class="muted">Por isso, unimos conhecimento e proximidade para entender o seu momento, organizar suas prioridades e transformar planos em próximos passos.</p><div class="about-values"><div class="value-line"><span>01</span><div><h3>Escuta antes da solução.</h3><p>Seu contexto é o nosso ponto de partida.</p></div></div><div class="value-line"><span>02</span><div><h3>Clareza em cada decisão.</h3><p>Informações que ajudam você a seguir em frente.</p></div></div></div><a class="button blue-button" href="/orcamento">Conheça a sua próxima parceria <span>↗</span></a></div>
 </div></section>
-<section class="section process-section"><div class="container"><div class="section-head" data-reveal><div><span class="eyebrow">03 / DO PRIMEIRO OLÁ AO PRÓXIMO PASSO</span><h2>Avançar pode ser<br>mais simples.</h2></div><p class="section-aside">Uma conversa abre o caminho.<br>Uma parceria ajuda a percorrê-lo.</p></div>
+<section class="section process-section" id="como-funciona"><div class="container"><div class="section-head" data-reveal><div><span class="eyebrow">03 / DO PRIMEIRO OLÁ AO PRÓXIMO PASSO</span><h2>Avançar pode ser<br>mais simples.</h2></div><p class="section-aside">Uma conversa abre o caminho.<br>Uma parceria ajuda a percorrê-lo.</p></div>
 <div class="process-layout" data-reveal><div class="process-tabs" role="tablist" aria-label="Como trabalhamos" aria-orientation="vertical">@foreach(['Uma conversa que importa','Um plano para sua realidade','Uma parceria para avançar'] as $label)<button class="process-tab {{ $loop->first ? 'selected' : '' }}" id="step-tab-{{ $loop->index }}" role="tab" aria-selected="{{ $loop->first ? 'true' : 'false' }}" aria-controls="step-panel-{{ $loop->index }}" tabindex="{{ $loop->first ? 0 : -1 }}" data-step="{{ $loop->index }}"><span>0{{ $loop->iteration }}</span>{{ $label }}<b>↗</b></button>@endforeach</div>
 <div class="process-panels">@foreach([['Tudo começa com você.','Conte seus desafios, suas ideias e o que espera para o seu negócio. Ouvimos com atenção para entender onde podemos fazer a diferença.','Vamos conversar','/orcamento'],['O seu momento define o caminho.','Organizamos as necessidades e propomos um escopo de trabalho com prioridades claras e soluções adequadas à sua realidade.','Conheça nossas soluções','/servicos'],['Seguimos juntos no próximo passo.','Acompanhamos o trabalho com comunicação próxima e informações claras para apoiar suas decisões ao longo do caminho.','Comece essa parceria','/orcamento']] as [$title,$body,$label,$url])<div class="process-panel" id="step-panel-{{ $loop->index }}" role="tabpanel" aria-labelledby="step-tab-{{ $loop->index }}" tabindex="0" @if(!$loop->first) hidden @endif><span class="process-big-number" aria-hidden="true">0{{ $loop->iteration }}</span><span class="eyebrow">NOSSO JEITO DE TRABALHAR</span><h3>{{ $title }}</h3><p>{{ $body }}</p><a class="text-link" href="{{ $url }}">{{ $label }} ↗</a></div>@endforeach</div></div>
 </div></section>
@@ -145,5 +150,5 @@
 @if($testimonials->isNotEmpty())<section class="section"><div class="container"><span class="eyebrow">CONFIANÇA QUE SE CONSTRÓI</span><h2>Quem caminha com a gente.</h2><div class="grid">@foreach($testimonials as $item)<blockquote class="card quote-card" data-reveal><span class="quote-mark">“</span><p>{{ $item->body }}</p><strong>{{ $item->title }}</strong><div class="muted">{{ $item->summary }}</div></blockquote>@endforeach</div></div></section>@endif
 @if($certifications->isNotEmpty())<section class="section"><div class="container"><h2>Certificações</h2><div class="grid">@foreach($certifications as $item)<div class="card" data-reveal><h3>{{ $item->title }}</h3><p>{{ $item->summary }}</p></div>@endforeach</div></div></section>@endif
 @if($banners->isNotEmpty())<section class="section"><div class="container grid">@foreach($banners as $item)<article class="card image-card" data-reveal>@if($item->image)<img loading="lazy" src="{{ $item->image }}" alt="{{ $item->title }}">@endif<div class="card-body"><h3>{{ $item->title }}</h3><p>{{ $item->summary }}</p><a class="text-link" href="/orcamento">Saiba mais ↗</a></div></article>@endforeach</div></section>@endif
-@if($faqs->isNotEmpty())<section class="section faq-section"><div class="container faq-grid"><div data-reveal><span class="eyebrow">VAMOS ESCLARECER?</span><h2>Boas perguntas.<br><span class="ink-blue">Caminhos mais claros.</span></h2><p class="muted">Ainda tem alguma dúvida?<br>A nossa equipe está aqui para conversar.</p><a class="text-link" href="/orcamento">Fale com a Cotech ↗</a></div><div class="faq-list" data-reveal>@foreach($faqs as $faq)<details name="cotech-faq"><summary><span class="faq-number">0{{ $loop->iteration }}</span>{{ $faq->title }}<span class="faq-toggle" aria-hidden="true">+</span></summary><p>{{ $faq->body }}</p></details>@endforeach</div></div></section>@endif
+@if($faqs->isNotEmpty())<section class="section faq-section" id="faq"><div class="container faq-grid"><div data-reveal><span class="eyebrow">VAMOS ESCLARECER?</span><h2>Boas perguntas.<br><span class="ink-blue">Caminhos mais claros.</span></h2><p class="muted">Ainda tem alguma dúvida?<br>A nossa equipe está aqui para conversar.</p><a class="text-link" href="/orcamento">Fale com a Cotech ↗</a></div><div class="faq-list" data-reveal>@foreach($faqs as $faq)<details name="cotech-faq"><summary><span class="faq-number">0{{ $loop->iteration }}</span>{{ $faq->title }}<span class="faq-toggle" aria-hidden="true">+</span></summary><p>{{ $faq->body }}</p></details>@endforeach</div></div></section>@endif
 @endsection
