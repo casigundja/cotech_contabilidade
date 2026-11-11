@@ -130,13 +130,62 @@ export const serviceCards = (items) =>
                 `<a class="solution-card" href="/servicos/${esc(s.slug)}" data-reveal><div class="solution-top"><span class="solution-icon">${["▥", "↗", "◎"][i % 3]}</span><span class="solution-number">${String(i + 1).padStart(2, "0")}</span></div><h3>${esc(s.title)}</h3><p>${esc(s.summary)}</p><div class="solution-link">Descubra as possibilidades <span>↗</span></div></a>`,
         )
         .join("");
-export const postCards = (items) =>
-    items
+export const formatDateDots = (value) => {
+    if (!value) return "21.10.2026";
+    const d = new Date(value);
+    if (isNaN(d.getTime())) return "21.10.2026";
+    const day = String(d.getUTCDate()).padStart(2, "0");
+    const month = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const year = d.getUTCFullYear();
+    return `${day}.${month}.${year}`;
+};
+
+const featuredInsightSlugs = [
+    "abertura-de-empresa",
+    "simples-nacional",
+    "comparativo-clt-pj",
+];
+
+const fallbackInsights = [
+    {
+        slug: "abertura-de-empresa",
+        title: "Abertura de Empresa: Guia Completo Passo a Passo para Tirar seu CNPJ",
+        summary:
+            "Descubra como abrir sua empresa sem burocracia: documentação necessária, escolha do CNAE, registro na junta comercial e tudo para formalizar seu negócio.",
+        category: "Abertura de Empresa",
+        published_at: "2026-10-21T10:00:00Z",
+    },
+    {
+        slug: "simples-nacional",
+        title: "Simples Nacional: O que é, Alíquotas, Anexos e Como Economizar",
+        summary:
+            "Entenda tudo sobre o regime tributário mais vantajoso do Brasil: limites de faturamento, cálculo do DAS e regras para reduzir seus impostos dentro da lei.",
+        category: "Simples Nacional",
+        published_at: "2026-10-21T10:00:00Z",
+    },
+    {
+        slug: "comparativo-clt-pj",
+        title: "Comparativo CLT x PJ: Vantagens, Direitos e Cálculos no Bolso",
+        summary:
+            "Qual regime compensa mais para a sua carreira? Veja a matemática detalhada entre salário com carteira assinada e faturamento PJ.",
+        category: "Carreira PJ",
+        published_at: "2026-10-21T10:00:00Z",
+    },
+];
+
+export const postCards = (items) => {
+    const bySlug = Object.fromEntries((items || []).map((x) => [x.slug, x]));
+    const selected = featuredInsightSlugs.map(
+        (slug, idx) => bySlug[slug] || fallbackInsights[idx],
+    );
+
+    return selected
         .map(
             (p, i) =>
-                `<article class="insight-card" data-reveal><a class="insight-cover cover-${i % 3}" href="/blog/${esc(p.slug)}" tabindex="-1" aria-hidden="true">${p.image && !["/images/contabilidade.jpeg", "/images/planejamento.jpeg", "/images/contadores.jpeg"].includes(p.image) ? `<img class="editorial-photo" src="${esc(p.image)}" alt="">` : `<span>COTECH / EM PERSPECTIVA</span><div class="editorial-shape shape-${i % 3}"></div><b>${String(i + 1).padStart(2, "0")}</b><span class="cover-arrow">↗</span>`}</a><div class="insight-meta"><span>${esc(p.category || "NEGÓCIOS & ESTRATÉGIA")}</span><span>${esc(stamp(p.published_at || p.created_at).split(",")[0])}</span></div><h3><a href="/blog/${esc(p.slug)}">${esc(p.title)}</a></h3><p>${esc(p.summary)}</p><a class="text-link" href="/blog/${esc(p.slug)}">Ler conteúdo ↗</a></article>`,
+                `<article class="insight-card" data-reveal><a class="insight-cover cover-${i % 3}" href="/blog/${esc(p.slug)}" tabindex="-1" aria-hidden="true"><span class="cover-pill">COTECH / EM PERSPECTIVA</span><div class="editorial-shape shape-${i % 3}"></div><b class="cover-number">${String(i + 1).padStart(2, "0")}</b><span class="cover-arrow">↗</span></a><div class="insight-meta"><span class="insight-tag">${esc((p.category || "Abertura de Empresa").toUpperCase())}</span><span class="insight-date">${esc(formatDateDots(p.published_at || p.created_at))}</span></div><h3><a href="/blog/${esc(p.slug)}">${esc(p.title)}</a></h3><p>${esc(p.summary)}</p><a class="text-link" href="/blog/${esc(p.slug)}">Ler conteúdo ↗</a></article>`,
         )
         .join("");
+};
 export function home(c, items) {
     const company = c.get("company");
     const by = (type) => items.filter((x) => x.type === type);
