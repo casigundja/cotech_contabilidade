@@ -1,123 +1,58 @@
 @extends('layouts.public')
 @php($company = \App\Support\Company::all())
 @section('content')
-<section class="cotech-premium-hero">
-    <div class="ambient-glow-cyan" aria-hidden="true"></div>
-    <div class="ambient-glow-red" aria-hidden="true"></div>
-    <div class="hero-grid-pattern" aria-hidden="true"></div>
-
-    <div class="hero-container">
-        <!-- Left: Copy & Actions -->
-        <div class="hero-copy">
-            <div class="hero-brand-pill">
-                <span class="pill-red-bar"></span>
-                <span>COTECH CONTABILIDADE</span>
-                <span class="pill-cyan-dot"></span>
+<section class="future-hero">
+    <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+    <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+    <div class="container future-grid">
+        <div class="future-copy">
+            <span class="overline"><span class="live-dot"></span> CONHECIMENTO QUE TRANSFORMA NEGÓCIOS</span>
+            <h1>O futuro do<br>seu negócio<br><em>começa agora.</em></h1>
+            <p>Transformamos números em direção. Contabilidade e consultoria próximas de você, com foco no que o seu negócio precisa para avançar.</p>
+            <div class="actions">
+                <a class="button" href="{{ \App\Support\Company::whatsapp() ?: '/orcamento' }}" target="_blank" rel="noopener">Vamos construir juntos <span>↗</span></a>
+                <a class="hero-discover" href="#facilidade"><span class="play-icon">↓</span> Explore nossas soluções</a>
             </div>
-
-            <h1 class="hero-headline">
-                Soluções inteligentes em<br>
-                <span class="highlight-cyan">Contabilidade</span> &amp; Negócios.
-            </h1>
-
-            <p class="hero-subtitle">
-                Mais organização, conformidade fiscal e visão estratégica para o seu negócio crescer com segurança, tecnologia e suporte em todas as etapas.
-            </p>
-
-            <div class="hero-actions">
-                <a class="btn-cotech-red" href="{{ \App\Support\Company::whatsapp() ?: '/orcamento' }}" target="_blank" rel="noopener">
-                    Fale com um especialista <span>↗</span>
-                </a>
-                <a class="btn-cotech-outline" href="#facilidade">
-                    Conheça nossas soluções ↓
-                </a>
-            </div>
-
-            <div class="hero-pillars-row">
-                <div class="pillar-card">
-                    <div class="pillar-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    </div>
-                    <div class="pillar-text-group">
-                        <strong>Gestão financeira</strong>
-                        <small>Clareza no fluxo de caixa</small>
-                    </div>
-                </div>
-
-                <div class="pillar-divider" aria-hidden="true"></div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
-                    </div>
-                    <div class="pillar-text-group">
-                        <strong>Conformidade fiscal</strong>
-                        <small>Segurança total com o Fisco</small>
-                    </div>
-                </div>
-
-                <div class="pillar-divider" aria-hidden="true"></div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon-box">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    </div>
-                    <div class="pillar-text-group">
-                        <strong>Apoio ao crescimento</strong>
-                        <small>Consultoria próxima e ativa</small>
-                    </div>
-                </div>
+            <div class="hero-signature">
+                <span class="signature-line"></span>
+                <span>O futuro em suas mãos.<br><strong>A Cotech ao seu lado.</strong></span>
             </div>
         </div>
-
-        <!-- Right: Character & Interactive Cards -->
-        <div class="hero-art-stage">
-            <div class="stage-orbit-ring ring-outer" aria-hidden="true"></div>
-            <div class="stage-orbit-ring ring-inner" aria-hidden="true"></div>
-
-            <div class="character-container">
-                <img src="/images/hero-man-computer.png" alt="Executivo Cotech no computador" class="character-img" width="560" height="410">
+        <div class="future-art" aria-label="Contabilidade, estratégia e gestão conectadas ao seu negócio">
+            <div class="art-grid" aria-hidden="true"></div>
+            <div class="orbit-ring ring-a" aria-hidden="true"></div>
+            <div class="orbit-ring ring-b" aria-hidden="true"></div>
+            <div class="brand-planet">
+                <img src="/images/logo.jpeg" alt="Cotech — O futuro em suas mãos" width="230" height="230">
             </div>
-
-            <div class="stage-card card-direction">
-                <div class="card-icon-box icon-direction">↗</div>
-                <div class="card-text-group">
+            <div class="floating-note note-one">
+                <span class="note-icon">↗</span>
+                <div>
                     <small>MAIS DIREÇÃO</small>
                     <strong>Estratégia para crescer</strong>
                 </div>
             </div>
-
-            <div class="stage-card card-clarity">
-                <div class="card-icon-box icon-clarity">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
-                </div>
-                <div class="card-text-group">
+            <div class="floating-note note-two">
+                <span class="note-icon">▥</span>
+                <div>
                     <small>MAIS CLAREZA</small>
                     <strong>Seus números fazem sentido.</strong>
-                    <div class="bars-graphic" aria-hidden="true">
-                        <span style="height: 25%"></span>
-                        <span style="height: 45%"></span>
-                        <span style="height: 35%"></span>
-                        <span style="height: 60%"></span>
-                        <span style="height: 50%"></span>
-                        <span style="height: 75%"></span>
-                        <span style="height: 70%"></span>
-                        <span style="height: 100%; background: var(--accent); box-shadow: 0 0 12px rgba(229, 30, 43, 0.5);"></span>
+                    <div class="mini-bars" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                     </div>
                 </div>
-                <svg class="mouse-cursor-pointer" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg class="mouse-pointer" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position: absolute; bottom: -8px; right: 24px; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));">
                     <path d="M4 3L11.5 21L14.5 13.5L22 10.5L4 3Z" fill="white" stroke="#162238" stroke-width="2" stroke-linejoin="round"/>
                 </svg>
             </div>
-
-            <div class="card-possibilities">
-                <span class="cyan-status-dot"></span>
+            <div class="floating-note note-three">
+                <span class="status-dot"></span>
                 <span>Pessoas. Negócios. Possibilidades.</span>
             </div>
+            <span class="art-caption">CONECTAMOS O PRESENTE AO SEU PRÓXIMO PASSO</span>
         </div>
     </div>
-
-    <div class="hero-bottom-bar">
+    <div class="container hero-bottom">
         <span>CONTABILIDADE COM VISÃO DE FUTURO</span>
         <a href="#facilidade">Continue explorando ↓</a>
     </div>

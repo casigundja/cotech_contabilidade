@@ -191,10 +191,9 @@ export function home(c, items) {
     const by = (type) => items.filter((x) => x.type === type);
     const title = company.hero_title;
     const slots = {
-        HERO_TITLE:
-            'Soluções inteligentes em<br><span class="highlight-cyan">Contabilidade</span> &amp; Negócios.',
+        HERO_TITLE: "O futuro do<br>seu negócio<br><em>começa agora.</em>",
         HERO_TEXT:
-            "Mais organização, conformidade fiscal e visão estratégica para o seu negócio crescer com segurança, tecnologia e suporte em todas as etapas.",
+            "Transformamos números em direção. Contabilidade e consultoria próximas de você, com foco no que o seu negócio precisa para avançar.",
         SERVICES: serviceCards(by("service")),
         POSTS: postCards(
             by("post")
