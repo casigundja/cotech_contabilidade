@@ -2,6 +2,61 @@
 @php($company = \App\Support\Company::all())
 @section('content')
 <section class="future-hero">
+    <div class="future-hero-accounting-bg" aria-hidden="true">
+        <div class="accounting-base-gradient"></div>
+        <div class="accounting-photo-office"></div>
+        <svg class="accounting-svg-canvas" viewBox="0 0 1440 850" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+                <pattern id="accGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+                    <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.8"/>
+                    <circle cx="48" cy="0" r="1" fill="rgba(99, 102, 241, 0.2)"/>
+                </pattern>
+                <linearGradient id="trendGradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#ff1a4f" stop-opacity="0.1"/>
+                    <stop offset="35%" stop-color="#ee003b" stop-opacity="0.4"/>
+                    <stop offset="65%" stop-color="#6366f1" stop-opacity="0.6"/>
+                    <stop offset="90%" stop-color="#00dfc4" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+                </linearGradient>
+                <linearGradient id="areaGradient" x1="0" y1="200" x2="0" y2="800" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6366f1" stop-opacity="0.12"/>
+                    <stop offset="60%" stop-color="#ee003b" stop-opacity="0.04"/>
+                    <stop offset="100%" stop-color="#08051a" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+            </defs>
+            <rect width="1440" height="850" fill="url(#accGrid)"/>
+            <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+                <line x1="0" y1="150" x2="1440" y2="450"/>
+                <line x1="0" y1="350" x2="1440" y2="650"/>
+            </g>
+            <path d="M-20 680 Q 320 660, 560 540 T 1000 380 Q 1200 310, 1460 260 L 1460 850 L -20 850 Z" fill="url(#areaGradient)"/>
+            <path d="M-20 680 Q 320 660, 560 540 T 1000 380 Q 1200 310, 1460 260" stroke="url(#trendGradient)" stroke-width="2.5" filter="url(#glowFilter)"/>
+            <path d="M-20 720 Q 340 700, 600 590 T 1040 430 Q 1240 370, 1460 330" stroke="rgba(255, 49, 95, 0.25)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <g>
+                <circle cx="560" cy="540" r="5" fill="#ee003b" filter="drop-shadow(0 0 10px #ee003b)"/>
+                <circle cx="560" cy="540" r="12" stroke="rgba(238, 0, 59, 0.4)" stroke-width="1"/>
+                <circle cx="1000" cy="380" r="6" fill="#6366f1" filter="drop-shadow(0 0 12px #6366f1)"/>
+                <circle cx="1000" cy="380" r="14" stroke="rgba(99, 102, 241, 0.35)" stroke-width="1"/>
+                <circle cx="1200" cy="310" r="5" fill="#00dfc4" filter="drop-shadow(0 0 10px #00dfc4)"/>
+                <circle cx="1200" cy="310" r="11" stroke="rgba(0, 223, 196, 0.35)" stroke-width="1"/>
+            </g>
+            <g font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="rgba(255,255,255,0.18)">
+                <text x="80" y="780">GESTÃO CONTÁBIL // TRIBUTÁRIA // CONSULTIVA</text>
+                <text x="580" y="535" fill="rgba(255,49,95,0.5)">DIAGNÓSTICO FISCAL</text>
+                <text x="1020" y="375" fill="rgba(165,180,252,0.5)">EFICIÊNCIA TRIBUTÁRIA</text>
+                <text x="1220" y="305" fill="rgba(0,223,196,0.55)">EXPANSÃO DE RESULTADOS</text>
+            </g>
+            <g transform="translate(1180, 80)" opacity="0.08" stroke="#ffffff" stroke-width="1.5" fill="none">
+                <path d="M40 10 L40 90 M20 90 L60 90 M10 25 L70 25"/>
+                <path d="M10 25 L2 55 L18 55 Z M70 25 L62 55 L78 55 Z"/>
+            </g>
+        </svg>
+        <div class="accounting-aurora"></div>
+    </div>
     <div class="hero-orbit orbit-one" aria-hidden="true"></div>
     <div class="hero-orbit orbit-two" aria-hidden="true"></div>
     <div class="container future-grid">
