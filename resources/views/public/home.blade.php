@@ -54,9 +54,6 @@
                         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                     </div>
                 </div>
-                <svg class="mouse-pointer" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="position: absolute; bottom: -8px; right: 24px; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));">
-                    <path d="M4 3L11.5 21L14.5 13.5L22 10.5L4 3Z" fill="white" stroke="#162238" stroke-width="2" stroke-linejoin="round"/>
-                </svg>
             </div>
             <div class="floating-note note-three">
                 <span class="status-dot"></span>
