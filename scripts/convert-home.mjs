@@ -9,6 +9,8 @@ $(".future-copy h1").html("@@HERO_TITLE@@");
 $(".future-copy > p").html("@@HERO_TEXT@@");
 $(".solucoes-title").html("@@HERO_TITLE@@");
 $(".solucoes-desc").html("@@HERO_TEXT@@");
+$(".hero-headline").html("@@HERO_TITLE@@");
+$(".hero-subtitle").html("@@HERO_TEXT@@");
 $(".solution-grid").html("@@SERVICES@@");
 $(".team-grid").html("@@TEAM@@");
 $(".insight-grid").html("@@POSTS@@");

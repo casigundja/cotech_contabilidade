@@ -3,10 +3,10 @@
 <html lang="pt">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#190864">
+<meta name="theme-color" content="#162238">
 <title>@yield('title', 'Cotech — O futuro em suas mãos')</title>
 <meta name="description" content="@yield('description', 'Contabilidade, consultoria e soluções para o crescimento do seu negócio. Conheça a Cotech e solicite uma proposta.')">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20"><link rel="shortcut icon" href="/favicon.ico?v=20"><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/public.css?v=20"><script src="/js/site.js?v=20" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=21"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=21"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=21"><link rel="shortcut icon" href="/favicon.ico?v=21"><link rel="stylesheet" href="/css/site.css?v=21"><link rel="stylesheet" href="/css/public.css?v=21"><script src="/js/site.js?v=21" defer></script>
 </head>
 <body class="public-site">
 <a class="skip" href="#main">Ir para o conteúdo</a><div class="scroll-progress" aria-hidden="true"></div>
